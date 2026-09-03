@@ -1,0 +1,35 @@
+# Deploy automático: toda vez que o código muda na branch main,
+# este robô sobe os arquivos via FTP para o subdomínio es.aivacs.online na Hostinger.
+# Site estático (HTML/CSS/JS puro) — não precisa de build.
+
+name: Deploy para Hostinger
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout do código
+        uses: actions/checkout@v4
+
+      # Sobe todo o conteúdo do repositório (exceto .git e .github) via FTP.
+      # As credenciais vêm dos Secrets configurados no repositório
+      # (Settings > Secrets and variables > Actions), nunca ficam expostas aqui.
+      - name: Deploy via FTP
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          local-dir: ./
+          # A conta FTP deve estar escopada direto na pasta do subdomínio
+          # es.aivacs.online na Hostinger (a pasta "es" dentro de public_html) — server-dir fica "./".
+          server-dir: ./
+          dangerous-clean-slate: false
+          exclude: |
+            **/.git*
+            **/.git*/**
+            **/.github/**
