@@ -1,0 +1,68 @@
+/* ===================================================
+   AIVACS — components.css
+   Small reusable UI pieces not already in main.css
+   =================================================== */
+
+/* ---- Glow divider ---- */
+.glow-divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, var(--accent) 50%, transparent 100%);
+  opacity: 0.35;
+  margin: 0;
+}
+
+/* ---- Scroll-to-top button (shown after 600px scroll) ---- */
+.scroll-top {
+  position: fixed; bottom: 92px; right: 28px;
+  width: 40px; height: 40px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+  cursor: none; z-index: 700;
+  opacity: 0; pointer-events: none;
+  transform: translateY(10px);
+  transition: opacity 0.3s ease, transform 0.3s ease, border-color 0.3s ease;
+}
+.scroll-top.visible { opacity: 1; pointer-events: auto; transform: none; }
+.scroll-top:hover { border-color: var(--border-hover); }
+.scroll-top svg { width: 16px; height: 16px; stroke: var(--text-secondary); }
+.scroll-top:hover svg { stroke: var(--accent); }
+
+/* ---- Tooltip ---- */
+[data-tooltip] { position: relative; }
+[data-tooltip]::after {
+  content: attr(data-tooltip);
+  position: absolute; bottom: calc(100% + 8px); left: 50%; transform: translateX(-50%);
+  background: var(--bg-card); border: 1px solid var(--border);
+  color: var(--text-secondary); font-size: 0.7rem; font-family: var(--font-mono);
+  padding: 5px 10px; border-radius: 6px; white-space: nowrap;
+  opacity: 0; pointer-events: none;
+  transition: opacity 0.2s ease;
+}
+[data-tooltip]:hover::after { opacity: 1; }
+
+/* ---- Noise texture overlay (decorative) ---- */
+.noise-overlay {
+  position: absolute; inset: 0; pointer-events: none; z-index: 0;
+  opacity: 0.018;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 200px 200px;
+}
+
+/* ---- Section accent stripe ---- */
+.section-stripe {
+  position: absolute; top: 0; left: 6%; right: 6%; height: 1px;
+  background: var(--border);
+}
+
+/* ---- Loading shimmer (for future async content) ---- */
+@keyframes shimmer {
+  0%   { background-position: -400px 0; }
+  100% { background-position: 400px 0; }
+}
+.shimmer {
+  background: linear-gradient(90deg, var(--bg-card) 25%, rgba(75,191,239,0.05) 50%, var(--bg-card) 75%);
+  background-size: 800px 100%;
+  animation: shimmer 1.6s infinite;
+}

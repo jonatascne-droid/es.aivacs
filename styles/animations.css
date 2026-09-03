@@ -1,0 +1,56 @@
+/* ===================================================
+   AIVACS — animations.css
+   Scroll-reveal, stagger, and entrance animations
+   =================================================== */
+
+/* ---- Reveal base states ---- */
+.reveal,
+.reveal-up,
+.reveal-left,
+.reveal-right,
+.reveal-scale {
+  opacity: 0;
+  transition: opacity 0.72s cubic-bezier(0.4, 0, 0.2, 1),
+              transform 0.72s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.reveal       { }
+.reveal-up    { transform: translateY(32px); }
+.reveal-left  { transform: translateX(-32px); }
+.reveal-right { transform: translateX(32px); }
+.reveal-scale { transform: scale(0.94); }
+
+/* Revealed state — reset everything */
+.revealed {
+  opacity: 1 !important;
+  transform: translateY(0) translateX(0) scale(1) !important;
+}
+
+/* ---- Stagger children ---- */
+.stagger > * {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.56s cubic-bezier(0.4, 0, 0.2, 1),
+              transform 0.56s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.stagger.revealed > *:nth-child(1)  { opacity: 1; transform: none; transition-delay: 0.07s; }
+.stagger.revealed > *:nth-child(2)  { opacity: 1; transform: none; transition-delay: 0.14s; }
+.stagger.revealed > *:nth-child(3)  { opacity: 1; transform: none; transition-delay: 0.21s; }
+.stagger.revealed > *:nth-child(4)  { opacity: 1; transform: none; transition-delay: 0.28s; }
+.stagger.revealed > *:nth-child(5)  { opacity: 1; transform: none; transition-delay: 0.35s; }
+.stagger.revealed > *:nth-child(6)  { opacity: 1; transform: none; transition-delay: 0.42s; }
+
+/* ---- Reduce motion ---- */
+@media (prefers-reduced-motion: reduce) {
+  .reveal, .reveal-up, .reveal-left, .reveal-right, .reveal-scale,
+  .stagger > * {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+  .hero-card { animation: none !important; }
+  .cta-symbol { animation: none !important; }
+  .marquee-track { animation: none !important; }
+  .steps-line-fill { transition: none !important; }
+}
