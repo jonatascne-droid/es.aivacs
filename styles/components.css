@@ -70,7 +70,7 @@
 /* ---- Portfolio subpages (portfolio/*.html) ---- */
 .page-hero { padding-top: 150px; padding-bottom: 56px; text-align: center; }
 .back-link {
-  display: inline-flex; align-items: center; gap: 8px;
+  display: flex; align-items: center; justify-content: center; gap: 8px;
   font-size: 0.85rem; color: var(--text-secondary);
   text-decoration: none; margin-bottom: 28px;
   transition: color var(--transition);
