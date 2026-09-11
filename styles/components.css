@@ -96,9 +96,24 @@
 .video-embed iframe {
   position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;
 }
+.video-embed.vertical { padding-bottom: 177.78%; }
 
 @media (max-width: 900px) {
   .playlist-grid { grid-template-columns: 1fr; }
+}
+
+/* ---- Video wall (individual clips, portfolio/publicidade.html) ---- */
+.video-wall { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.video-wall.vertical-grid { grid-template-columns: repeat(4, 1fr); }
+.reel-cell { display: flex; justify-content: center; }
+.reel-cell .instagram-media { margin: 0 !important; width: 100% !important; max-width: 100% !important; }
+
+@media (max-width: 900px) {
+  .video-wall { grid-template-columns: repeat(2, 1fr); }
+  .video-wall.vertical-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 520px) {
+  .video-wall, .video-wall.vertical-grid { grid-template-columns: 1fr; }
 }
 
 /* ---- Systems showcase (portfolio/sistemas.html) ---- */
