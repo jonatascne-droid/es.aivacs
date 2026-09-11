@@ -105,38 +105,22 @@
 /* ---- Video wall (individual clips, portfolio/publicidade.html) ---- */
 .video-wall { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
 
-/* Grade de shorts/reels: mais densa e com cada item limitado a um tamanho
-   compacto (max-width no próprio item, não na coluna), pra não ficar "pesada"
-   mesmo quando a coluna disponível é larga. */
-.video-wall.vertical-grid {
-  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-  gap: 14px;
-  justify-items: center;
-}
-.video-wall.vertical-grid .video-embed.vertical { max-width: 260px; width: 100%; }
-.reel-cell { display: flex; justify-content: center; width: 100%; }
+.video-wall.vertical-grid { grid-template-columns: repeat(4, 1fr); }
 
-/* Card minimalista pro reel do Instagram: o embed oficial injeta sua própria
-   interface (curtir/comentar/perfil) via JS por cima de qualquer CSS nosso,
-   sempre destoando do visual escuro do site — então em vez do embed, é um
-   link direto pro reel, no mesmo estilo dos outros cards do site. */
-.reel-card {
-  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px;
-  width: 100%; max-width: 260px; aspect-ratio: 9 / 16;
-  background: var(--bg-card); border: 1px solid var(--border); border-radius: 10px;
-  text-decoration: none; color: var(--text-secondary); padding: 20px; text-align: center;
-  transition: border-color var(--transition), transform var(--transition), color var(--transition);
+/* Reels do Instagram: embed oficial (com perfil, curtidas e comentários),
+   em sua própria seção — não competindo por espaço com a grade compacta
+   de shorts, por isso pode usar o tamanho nativo do widget do Instagram. */
+.reel-wall {
+  display: flex; flex-wrap: wrap; justify-content: center; gap: 24px;
 }
-.reel-card:hover { border-color: var(--border-hover); transform: translateY(-4px); color: var(--accent); }
-.reel-card svg { width: 32px; height: 32px; stroke: currentColor; }
-.reel-card-label { font-family: var(--font-mono); font-size: 0.75rem; letter-spacing: 0.02em; line-height: 1.4; }
+.reel-cell { display: flex; justify-content: center; }
 
 @media (max-width: 900px) {
   .video-wall { grid-template-columns: repeat(2, 1fr); }
+  .video-wall.vertical-grid { grid-template-columns: repeat(2, 1fr); }
 }
 @media (max-width: 520px) {
   .video-wall { grid-template-columns: 1fr; }
-  .video-wall.vertical-grid { grid-template-columns: repeat(2, 1fr); }
 }
 
 /* ---- Resultados / campaign metrics (portfolio/publicidade.html) ---- */
