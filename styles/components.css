@@ -139,6 +139,33 @@
   .video-wall.vertical-grid { grid-template-columns: repeat(2, 1fr); }
 }
 
+/* ---- Resultados / campaign metrics (portfolio/publicidade.html) ---- */
+.campaign-metrics {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 0;
+  max-width: 920px; margin: 0 auto 48px; background: var(--bg-secondary);
+  border: 1px solid var(--border); border-radius: var(--radius-card);
+  padding: 28px 12px;
+}
+.campaign-metrics .metric-item { border-right: 1px solid var(--border); }
+.campaign-metrics .metric-item:last-child { border-right: none; }
+
+.chart-card {
+  max-width: 780px; margin: 0 auto; background: var(--bg-card);
+  border: 1px solid var(--border); border-radius: var(--radius-card);
+  padding: 28px 28px 12px;
+}
+.chart-card-header { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; margin-bottom: 18px; flex-wrap: wrap; }
+.chart-card-title { font-family: var(--font-display); font-weight: 700; font-size: 1.05rem; }
+.chart-card-sub { font-size: 0.8rem; color: var(--text-secondary); font-family: var(--font-mono); }
+.chart-bars { width: 100%; height: auto; display: block; }
+.chart-disclaimer { text-align: center; font-size: 0.72rem; color: var(--text-secondary); opacity: 0.7; max-width: 780px; margin: 14px auto 0; }
+
+@media (max-width: 700px) {
+  .campaign-metrics { grid-template-columns: repeat(2, 1fr); }
+  .campaign-metrics .metric-item { border-right: 1px solid var(--border); border-bottom: 1px solid var(--border); padding-bottom: 16px; margin-bottom: 4px; }
+  .campaign-metrics .metric-item:nth-child(2n) { border-right: none; }
+}
+
 /* ---- Systems showcase (portfolio/sistemas.html) ---- */
 .systems-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
 .system-card {
