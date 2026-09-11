@@ -104,16 +104,25 @@
 
 /* ---- Video wall (individual clips, portfolio/publicidade.html) ---- */
 .video-wall { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
-.video-wall.vertical-grid { grid-template-columns: repeat(4, 1fr); }
-.reel-cell { display: flex; justify-content: center; }
-.reel-cell .instagram-media { margin: 0 !important; width: 100% !important; max-width: 100% !important; }
+
+/* Grade de shorts/reels: mais densa e com cada item limitado a um tamanho
+   compacto (max-width no próprio item, não na coluna), pra não ficar "pesada"
+   mesmo quando a coluna disponível é larga. */
+.video-wall.vertical-grid {
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 14px;
+  justify-items: center;
+}
+.video-wall.vertical-grid .video-embed.vertical { max-width: 260px; width: 100%; }
+.reel-cell { display: flex; justify-content: center; width: 100%; }
+.reel-cell .instagram-media { margin: 0 !important; width: 100% !important; max-width: 300px !important; }
 
 @media (max-width: 900px) {
   .video-wall { grid-template-columns: repeat(2, 1fr); }
-  .video-wall.vertical-grid { grid-template-columns: repeat(2, 1fr); }
 }
 @media (max-width: 520px) {
-  .video-wall, .video-wall.vertical-grid { grid-template-columns: 1fr; }
+  .video-wall { grid-template-columns: 1fr; }
+  .video-wall.vertical-grid { grid-template-columns: repeat(2, 1fr); }
 }
 
 /* ---- Systems showcase (portfolio/sistemas.html) ---- */
