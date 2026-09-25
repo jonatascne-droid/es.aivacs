@@ -8,6 +8,10 @@
   const revealObs = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (!entry.isIntersecting) return;
+      /* Blocos mais altos que a tela (ex.: a parede de reels empilhada no celular)
+         nunca chegam a 12% visíveis — esses revelam assim que começam a aparecer. */
+      const alto = entry.boundingClientRect.height > window.innerHeight;
+      if (entry.intersectionRatio < 0.12 && !alto) return;
       entry.target.classList.add('revealed');
 
       /* Trigger progress bar inside hero card when visible */
@@ -24,7 +28,7 @@
 
       revealObs.unobserve(entry.target);
     });
-  }, { threshold: 0.12 });
+  }, { threshold: [0, 0.12] });
 
   document.querySelectorAll(
     '.reveal, .reveal-up, .reveal-left, .reveal-right, .reveal-scale, .stagger, #stepsContainer'
