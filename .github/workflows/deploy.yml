@@ -33,3 +33,4 @@ jobs:
             **/.git*
             **/.git*/**
             **/.github/**
+            **/.claude/**
