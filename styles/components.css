@@ -113,7 +113,14 @@
 .reel-wall {
   display: flex; flex-wrap: wrap; justify-content: center; gap: 24px;
 }
-.reel-cell { display: flex; justify-content: center; }
+.reel-cell { display: flex; flex-direction: column; align-items: center; gap: 10px; }
+/* Nunca deixa o quadro do Instagram colapsar em altura 0 (visto no Safari do iPhone). */
+.reel-cell iframe { min-height: 480px; background: #fff; }
+.reel-link {
+  font-size: 14px; font-weight: 600; color: #4BBFEF; text-decoration: none;
+  padding: 6px 12px; border-radius: 999px; border: 1px solid rgba(75,191,239,.35);
+}
+.reel-link:hover { background: rgba(75,191,239,.1); }
 /* Aparece só se o script do Instagram não carregar (ex.: Safari com proteção
    contra rastreamento ou bloqueador) — o embed substitui o blockquote inteiro. */
 .reel-fallback {
