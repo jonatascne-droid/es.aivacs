@@ -62,6 +62,11 @@
     });
   }, { threshold: 0.6 });
 
-  document.querySelectorAll('[data-target]').forEach(el => counterObs.observe(el));
+  /* O HTML traz o número final (para quem lê a página sem JS, como buscadores);
+     aqui ele volta a zero para a animação contar até o alvo. */
+  document.querySelectorAll('[data-target]').forEach(el => {
+    el.textContent = (el.getAttribute('data-prefix') || '') + '0' + (el.getAttribute('data-suffix') || '');
+    counterObs.observe(el);
+  });
 
 })();

@@ -26,6 +26,17 @@
   transform: translateY(0) translateX(0) scale(1) !important;
 }
 
+/* ---- Entrada do topo da página (hero) ----
+   Só CSS: o texto do topo é o maior elemento da primeira tela (LCP)
+   e aparece já no primeiro paint, sem esperar o animations.js. */
+.hero-in {
+  animation: hero-in 0.72s cubic-bezier(0.4, 0, 0.2, 1) both;
+}
+
+@keyframes hero-in {
+  from { opacity: 0; transform: translateY(32px); }
+}
+
 /* ---- Stagger children ---- */
 .stagger > * {
   opacity: 0;
@@ -49,6 +60,7 @@
     transform: none !important;
     transition: none !important;
   }
+  .hero-in { animation: none !important; }
   .hero-card { animation: none !important; }
   .cta-symbol { animation: none !important; }
   .marquee-track { animation: none !important; }
