@@ -33,7 +33,7 @@
   <link rel="preload" href="assets/fonts/plus-jakarta-sans.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="styles/main.css?v=9">
   <link rel="stylesheet" href="styles/animations.css?v=9">
-  <link rel="stylesheet" href="styles/components.css?v=4">
+  <link rel="stylesheet" href="styles/components.css?v=13">
   <link rel="stylesheet" href="styles/produtos.css?v=3">
   <link rel="stylesheet" href="styles/brilla.css?v=2">
 
@@ -107,6 +107,59 @@
         "publisher": {
           "@id": "https://es.aivacs.online/#organization"
         }
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "¿Qué hace AIVACS?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Somos una agencia de soluciones digitales: creamos páginas web, chatbots y automatizaciones de WhatsApp, software de gestión a medida y campañas de publicidad en Meta y Google. También desarrollamos productos propios, como Obra Organize, Emite Fácil, WorkProspec y Brilla."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "¿Trabajáis con empresas de toda España?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Sí. El diagnóstico, las revisiones y la entrega se pueden hacer a distancia, por WhatsApp, correo electrónico o videollamada."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "¿Cuánto cuesta trabajar con AIVACS?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No trabajamos con paquetes fijos. Hacemos un diagnóstico gratuito, entendemos tu negocio y te enviamos una propuesta a medida, con el alcance, el plazo y la inversión."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "¿Cómo empieza un proyecto?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Con una conversación por WhatsApp o por correo para hacer el diagnóstico gratuito. A partir de ahí seguimos cuatro pasos: diagnóstico, planificación, ejecución y entrega."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "¿Puedo probar vuestros productos antes de suscribirme?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Sí. Obra Organize, Emite Fácil, WorkProspec y Brilla tienen demos en vivo, sin registro y con datos de ejemplo."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "¿Qué tecnologías utilizáis?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Trabajamos con herramientas actuales como Next.js, Lovable, Supabase, n8n, la API oficial de WhatsApp Business, Meta Ads y Google Ads, además de inteligencia artificial como Claude y ChatGPT."
+            }
+          }
+        ]
       }
     ]
   }
@@ -784,6 +837,7 @@
       <div class="tags">
         <span class="tag">Next.js</span><span class="tag">Lovable</span><span class="tag">SEO</span><span class="tag">Performance</span>
       </div>
+      <a href="servicios/paginas-web/" class="service-link">Más sobre páginas web <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"></path><path d="M12 5l7 7-7 7"></path></svg></a>
     </div>
 
     <div class="service-card">
@@ -796,6 +850,7 @@
       <div class="tags">
         <span class="tag">N8N</span><span class="tag">WhatsApp API</span><span class="tag">CRM</span><span class="tag">Chatbot</span>
       </div>
+      <a href="servicios/chatbot-whatsapp/" class="service-link">Más sobre chatbots de WhatsApp <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"></path><path d="M12 5l7 7-7 7"></path></svg></a>
     </div>
 
     <div class="service-card">
@@ -808,6 +863,7 @@
       <div class="tags">
         <span class="tag">Dashboard</span><span class="tag">Database</span><span class="tag">Workflow</span><span class="tag">Informes</span>
       </div>
+      <a href="servicios/software-a-medida/" class="service-link">Más sobre software a medida <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"></path><path d="M12 5l7 7-7 7"></path></svg></a>
     </div>
 
     <div class="service-card">
@@ -820,6 +876,7 @@
       <div class="tags">
         <span class="tag">Meta ADS</span><span class="tag">Google ADS</span><span class="tag">Creative</span><span class="tag">Analytics</span>
       </div>
+      <a href="servicios/publicidad-meta-google-ads/" class="service-link">Más sobre publicidad en Meta y Google <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"></path><path d="M12 5l7 7-7 7"></path></svg></a>
     </div>
   </div>
 </section>
@@ -1033,6 +1090,40 @@
 </section>
 
 
+<!-- ====== PREGUNTAS FRECUENTES ====== -->
+<section id="faq" class="faq-sec" aria-labelledby="faq-titulo">
+  <div class="section-header">
+    <h2 class="section-title reveal-up" id="faq-titulo">Preguntas frecuentes</h2>
+  </div>
+  <div class="faq-list">
+    <details class="faq-item">
+      <summary>¿Qué hace AIVACS?</summary>
+      <div class="faq-answer"><p>Somos una agencia de soluciones digitales: creamos páginas web, chatbots y automatizaciones de WhatsApp, software de gestión a medida y campañas de publicidad en Meta y Google. También desarrollamos productos propios, como Obra Organize, Emite Fácil, WorkProspec y Brilla.</p></div>
+    </details>
+    <details class="faq-item">
+      <summary>¿Trabajáis con empresas de toda España?</summary>
+      <div class="faq-answer"><p>Sí. El diagnóstico, las revisiones y la entrega se pueden hacer a distancia, por WhatsApp, correo electrónico o videollamada.</p></div>
+    </details>
+    <details class="faq-item">
+      <summary>¿Cuánto cuesta trabajar con AIVACS?</summary>
+      <div class="faq-answer"><p>No trabajamos con paquetes fijos. Hacemos un diagnóstico gratuito, entendemos tu negocio y te enviamos una propuesta a medida, con el alcance, el plazo y la inversión.</p></div>
+    </details>
+    <details class="faq-item">
+      <summary>¿Cómo empieza un proyecto?</summary>
+      <div class="faq-answer"><p>Con una conversación por WhatsApp o por correo para hacer el diagnóstico gratuito. A partir de ahí seguimos cuatro pasos: diagnóstico, planificación, ejecución y entrega.</p></div>
+    </details>
+    <details class="faq-item">
+      <summary>¿Puedo probar vuestros productos antes de suscribirme?</summary>
+      <div class="faq-answer"><p>Sí. Obra Organize, Emite Fácil, WorkProspec y Brilla tienen demos en vivo, sin registro y con datos de ejemplo.</p></div>
+    </details>
+    <details class="faq-item">
+      <summary>¿Qué tecnologías utilizáis?</summary>
+      <div class="faq-answer"><p>Trabajamos con herramientas actuales como Next.js, Lovable, Supabase, n8n, la API oficial de WhatsApp Business, Meta Ads y Google Ads, además de inteligencia artificial como Claude y ChatGPT.</p></div>
+    </details>
+  </div>
+</section>
+
+
 <!-- ====== CTA FINAL ====== -->
 <section id="cta">
   <div class="cta-bg" aria-hidden="true"></div>
@@ -1088,6 +1179,16 @@
         <li><a href="#processo">Cómo funciona</a></li>
         <li><a href="#planos">Planes</a></li>
         <li><a href="#cta">Contacto</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-links">
+      <h4 class="footer-heading">Servicios</h4>
+      <ul>
+        <li><a href="servicios/paginas-web/">Páginas web</a></li>
+        <li><a href="servicios/chatbot-whatsapp/">Chatbot de WhatsApp</a></li>
+        <li><a href="servicios/software-a-medida/">Software a medida</a></li>
+        <li><a href="servicios/publicidad-meta-google-ads/">Publicidad en Meta y Google</a></li>
       </ul>
     </div>
 
