@@ -1,0 +1,22 @@
+# Configuração do servidor para es.aivacs.online (Hostinger).
+# Sobe junto com o site pelo deploy automático para public_html/es/.
+
+# Endereço que não existe mostra a página 404 em espanhol (com status 404).
+ErrorDocument 404 /404.html
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+
+  # /index.html e /pasta/index.html redirecionam para o endereço sem
+  # "index.html" (301), para o Google não ver duas versões da mesma página.
+  # THE_REQUEST garante que só o endereço digitado conta, e não a busca
+  # interna que o servidor faz pelo index.html ao abrir uma pasta.
+  RewriteCond %{THE_REQUEST} \s/+(.*/)?index\.html[\s?] [NC]
+  RewriteRule ^(.*/)?index\.html$ /$1 [R=301,L,NC]
+
+  # Arquivos que começam com ponto (ex.: .ftp-deploy-sync-state.json, do
+  # deploy) não ficam públicos: respondem "acesso negado" (403).
+  # .well-known fica liberado porque a Hostinger usa para o certificado SSL.
+  RewriteCond %{REQUEST_URI} !^/\.well-known/
+  RewriteRule (^|/)\. - [F,L]
+</IfModule>
