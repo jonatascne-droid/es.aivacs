@@ -14,6 +14,16 @@ ErrorDocument 404 /404.html
   RewriteCond %{HTTP_HOST} !^es\.aivacs\.online$ [NC]
   RewriteRule ^(.*)$ https://es.aivacs.online/$1 [R=301,L]
 
+  # Endereços antigos do portfólio (em português, até 07/10/2026) vão para
+  # os novos em espanhol (301). O #trecho do link o navegador mantém sozinho.
+  RewriteRule ^portfolio/sistemas\.html$ /portafolio/sistemas/ [R=301,L,NC]
+  RewriteRule ^portfolio/automacoes\.html$ /portafolio/automatizaciones/ [R=301,L,NC]
+  RewriteRule ^portfolio/publicidade\.html$ /portafolio/publicidad/ [R=301,L,NC]
+
+  # As pastas sozinhas não têm página: levam para a seção da home.
+  RewriteRule ^(portfolio|portafolio)/?$ /#portfolio [R=301,NE,L,NC]
+  RewriteRule ^servicios/?$ /#servicos [R=301,NE,L,NC]
+
   # /index.html e /pasta/index.html redirecionam para o endereço sem
   # "index.html" (301), para o Google não ver duas versões da mesma página.
   # THE_REQUEST garante que só o endereço digitado conta, e não a busca
