@@ -7,6 +7,13 @@ ErrorDocument 404 /404.html
 <IfModule mod_rewrite.c>
   RewriteEngine On
 
+  # Endereço único: esta pasta também abre como aivacs.online/es/ (e outros
+  # nomes do servidor). Tudo que não chegar por es.aivacs.online vai para lá
+  # (301), mantendo o caminho. Este arquivo desliga as regras da pasta-mãe
+  # public_html, então o redirecionamento do domínio principal não pega aqui.
+  RewriteCond %{HTTP_HOST} !^es\.aivacs\.online$ [NC]
+  RewriteRule ^(.*)$ https://es.aivacs.online/$1 [R=301,L]
+
   # /index.html e /pasta/index.html redirecionam para o endereço sem
   # "index.html" (301), para o Google não ver duas versões da mesma página.
   # THE_REQUEST garante que só o endereço digitado conta, e não a busca
