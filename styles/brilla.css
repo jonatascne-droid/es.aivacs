@@ -119,7 +119,7 @@
 }
 
 /* ---- Tipografia e cores do Brilla nos componentes .spotlight-* ---- */
-.theme-brilla .spotlight-logo { background: var(--brilla-teal); }
+.theme-brilla .spotlight-logo { background: #D5E5DF; } /* igual ao logo do produto */
 .theme-brilla .spotlight-wordmark { font-family: 'Fraunces', serif; font-weight: 700; color: var(--brilla-ink); font-size: 1.3rem; }
 .theme-brilla .spotlight-title { font-family: 'Fraunces', serif; font-weight: 600; color: var(--brilla-ink); letter-spacing: -0.01em; }
 .theme-brilla .spotlight-tag { color: var(--brilla-teal); background: rgba(0,117,99,0.08); border-color: rgba(0,117,99,0.22); }

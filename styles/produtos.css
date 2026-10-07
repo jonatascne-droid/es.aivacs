@@ -41,7 +41,7 @@
 .theme-prospec { background: #03171D; }
 .theme-prospec .spotlight-card { background: #062128; border-color: #21373D; box-shadow: 0 30px 70px -30px rgba(0,0,0,0.6); }
 .theme-prospec .spotlight-live { background: #062128; border-color: #21373D; color: #EBF3F6; box-shadow: 0 6px 16px rgba(0,0,0,0.3); }
-.theme-prospec .spotlight-logo { background: #FF7527; }
+.theme-prospec .spotlight-logo { background: rgba(255,119,45,0.14); } /* igual ao logo do produto */
 .theme-prospec .spotlight-wordmark,
 .theme-prospec .spotlight-title,
 .theme-prospec .spotlight-features li { color: #EBF3F6; }
@@ -136,3 +136,10 @@
   .products-index li + li { border-left: none; border-top: 1px solid var(--border); }
   .products-index-link { padding: 18px 6px; }
 }
+
+/* Logos com fundo próprio, iguais aos dos produtos (favicon e app):
+   WorkProspec = alvo laranja sobre fundo laranja translúcido;
+   Brilla = brilho teal sobre verde-menta claro (o fundo das vitrines
+   fica nas regras .theme-prospec/.theme-brilla). */
+.products-index-logo.is-prospec { background: rgba(255,119,45,0.14); }
+.products-index-logo.is-brilla { background: #D5E5DF; }
