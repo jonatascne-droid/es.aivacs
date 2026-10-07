@@ -3,6 +3,69 @@
    Reset, variables, base, layout, navbar, footer
    =================================================== */
 
+/* ---- Fontes ----
+   Servidas pelo próprio site (antes vinham do Google Fonts): a primeira
+   pintura não espera outro domínio e o IP do visitante não vai para o
+   Google. Só o subconjunto latino, que cobre o espanhol (á é í ó ú ñ ü ¿ ¡ €);
+   um arquivo variável por família cobre todos os pesos. Licença SIL OFL 1.1
+   (assets/fonts/LEIA-ME.txt). */
+@font-face {
+  font-family: 'DM Sans';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url('../assets/fonts/dm-sans-italic.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'DM Sans';
+  font-style: normal;
+  font-weight: 300 600;
+  font-display: swap;
+  src: url('../assets/fonts/dm-sans.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Fraunces';
+  font-style: normal;
+  font-weight: 500 700;
+  font-display: swap;
+  src: url('../assets/fonts/fraunces.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Fredoka';
+  font-style: normal;
+  font-weight: 600 700;
+  font-display: swap;
+  src: url('../assets/fonts/fredoka.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 400 500;
+  font-display: swap;
+  src: url('../assets/fonts/jetbrains-mono.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Plus Jakarta Sans';
+  font-style: normal;
+  font-weight: 300 800;
+  font-display: swap;
+  src: url('../assets/fonts/plus-jakarta-sans.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Space Grotesk';
+  font-style: normal;
+  font-weight: 500 700;
+  font-display: swap;
+  src: url('../assets/fonts/space-grotesk.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 html { scroll-behavior: smooth; font-size: 16px; }
@@ -120,7 +183,7 @@ nav.scrolled {
   text-decoration: none;
   color: var(--text-secondary);
   font-size: 0.875rem; font-weight: 500;
-  position: relative;
+  position: relative; white-space: nowrap;
   transition: color var(--transition);
 }
 .nav-links a::after {
@@ -691,7 +754,14 @@ footer { background: var(--bg-secondary); padding: 52px 6% 28px; position: relat
 .footer-copy { font-size: 0.78rem; color: var(--text-muted); }
 
 /* ===== RESPONSIVE ===== */
+/* Menu com 6 itens: mais juntos até 1200px e, abaixo de 1100px, o botão ☰
+   (antes os itens quebravam em duas linhas ou passavam da tela em tablets). */
+@media (max-width: 1200px) {
+  .nav-links { gap: 20px; }
+}
 @media (max-width: 1100px) {
+  .nav-links, .nav-cta { display: none; }
+  .nav-hamburger { display: flex; }
   .hero-content { grid-template-columns: 1fr; }
   .hero-visual { height: 360px; }
   .services-grid { grid-template-columns: 1fr; }

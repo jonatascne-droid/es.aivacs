@@ -29,12 +29,11 @@
   <meta name="theme-color" content="#080C10">
   <meta name="msapplication-TileColor" content="#080C10">
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../styles/main.css?v=8">
+  <!-- Fontes servidas pelo próprio site; a do título (LCP) já começa a baixar aqui -->
+  <link rel="preload" href="../assets/fonts/plus-jakarta-sans.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="../styles/main.css?v=9">
   <link rel="stylesheet" href="../styles/animations.css?v=9">
-  <link rel="stylesheet" href="../styles/components.css?v=10">
+  <link rel="stylesheet" href="../styles/components.css?v=11">
 
   <!-- Dados estruturados (schema.org) para o Google -->
   <script type="application/ld+json">
@@ -85,6 +84,7 @@
   </a>
 
   <ul class="nav-links">
+    <li><a href="../#productos">Productos</a></li>
     <li><a href="../#servicos">Qué hacemos</a></li>
     <li><a href="../#processo">Cómo funciona</a></li>
     <li><a href="../#portfolio">Portafolio</a></li>
@@ -101,6 +101,7 @@
 
 <!-- Mobile Nav Overlay -->
 <div class="mobile-nav" id="mobileNav" aria-hidden="true">
+  <a href="../#productos" class="mobile-link">Productos</a>
   <a href="../#servicos" class="mobile-link">Qué hacemos</a>
   <a href="../#processo" class="mobile-link">Cómo funciona</a>
   <a href="../#portfolio" class="mobile-link">Portafolio</a>
@@ -259,12 +260,12 @@
     <h2 class="section-title reveal-up" style="transition-delay:.06s">Producciones y campañas</h2>
   </div>
   <div class="video-wall reveal-up">
-    <div class="video-embed"><iframe src="https://www.youtube.com/embed/F4bYF2WzgBQ" title="Vídeo AIVACS 01" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
-    <div class="video-embed"><iframe src="https://www.youtube.com/embed/MNVUn9nqo60" title="Vídeo AIVACS 02" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
-    <div class="video-embed"><iframe src="https://www.youtube.com/embed/wyNR31TqXmI" title="Vídeo AIVACS 03" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
-    <div class="video-embed"><iframe src="https://www.youtube.com/embed/HBo-aWuaSek" title="Vídeo AIVACS 04" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
-    <div class="video-embed"><iframe src="https://www.youtube.com/embed/n-DiEfaAciI" title="Vídeo AIVACS 05" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
-    <div class="video-embed"><iframe src="https://www.youtube.com/embed/HwQ8qH5Yi5g" title="Vídeo AIVACS 06" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
+    <div class="video-embed"><button type="button" class="yt-facade" data-yt="F4bYF2WzgBQ" data-title="Vídeo AIVACS 01" aria-label="Reproducir: Vídeo AIVACS 01"><img src="https://i.ytimg.com/vi/F4bYF2WzgBQ/hqdefault.jpg" alt="" width="480" height="360" loading="lazy" decoding="async" onerror="this.remove()"><span class="yt-play" aria-hidden="true"><svg viewBox="0 0 68 48" width="56" height="40"><path d="M66.5 7.7c-.8-2.9-2.5-5.4-5.4-6.2C55.8.1 34 0 34 0S12.2.1 6.9 1.6C4 2.3 2.3 4.8 1.5 7.7 0 13 0 24 0 24s0 11 1.5 16.3c.8 2.9 2.5 5.4 5.4 6.2C12.2 47.9 34 48 34 48s21.8-.1 27.1-1.6c2.9-.7 4.6-3.2 5.4-6.1C68 35 68 24 68 24s0-11-1.5-16.3z" fill="#f00"/><path d="M45 24 27 14v20" fill="#fff"/></svg></span></button></div>
+    <div class="video-embed"><button type="button" class="yt-facade" data-yt="MNVUn9nqo60" data-title="Vídeo AIVACS 02" aria-label="Reproducir: Vídeo AIVACS 02"><img src="https://i.ytimg.com/vi/MNVUn9nqo60/hqdefault.jpg" alt="" width="480" height="360" loading="lazy" decoding="async" onerror="this.remove()"><span class="yt-play" aria-hidden="true"><svg viewBox="0 0 68 48" width="56" height="40"><path d="M66.5 7.7c-.8-2.9-2.5-5.4-5.4-6.2C55.8.1 34 0 34 0S12.2.1 6.9 1.6C4 2.3 2.3 4.8 1.5 7.7 0 13 0 24 0 24s0 11 1.5 16.3c.8 2.9 2.5 5.4 5.4 6.2C12.2 47.9 34 48 34 48s21.8-.1 27.1-1.6c2.9-.7 4.6-3.2 5.4-6.1C68 35 68 24 68 24s0-11-1.5-16.3z" fill="#f00"/><path d="M45 24 27 14v20" fill="#fff"/></svg></span></button></div>
+    <div class="video-embed"><button type="button" class="yt-facade" data-yt="wyNR31TqXmI" data-title="Vídeo AIVACS 03" aria-label="Reproducir: Vídeo AIVACS 03"><img src="https://i.ytimg.com/vi/wyNR31TqXmI/hqdefault.jpg" alt="" width="480" height="360" loading="lazy" decoding="async" onerror="this.remove()"><span class="yt-play" aria-hidden="true"><svg viewBox="0 0 68 48" width="56" height="40"><path d="M66.5 7.7c-.8-2.9-2.5-5.4-5.4-6.2C55.8.1 34 0 34 0S12.2.1 6.9 1.6C4 2.3 2.3 4.8 1.5 7.7 0 13 0 24 0 24s0 11 1.5 16.3c.8 2.9 2.5 5.4 5.4 6.2C12.2 47.9 34 48 34 48s21.8-.1 27.1-1.6c2.9-.7 4.6-3.2 5.4-6.1C68 35 68 24 68 24s0-11-1.5-16.3z" fill="#f00"/><path d="M45 24 27 14v20" fill="#fff"/></svg></span></button></div>
+    <div class="video-embed"><button type="button" class="yt-facade" data-yt="HBo-aWuaSek" data-title="Vídeo AIVACS 04" aria-label="Reproducir: Vídeo AIVACS 04"><img src="https://i.ytimg.com/vi/HBo-aWuaSek/hqdefault.jpg" alt="" width="480" height="360" loading="lazy" decoding="async" onerror="this.remove()"><span class="yt-play" aria-hidden="true"><svg viewBox="0 0 68 48" width="56" height="40"><path d="M66.5 7.7c-.8-2.9-2.5-5.4-5.4-6.2C55.8.1 34 0 34 0S12.2.1 6.9 1.6C4 2.3 2.3 4.8 1.5 7.7 0 13 0 24 0 24s0 11 1.5 16.3c.8 2.9 2.5 5.4 5.4 6.2C12.2 47.9 34 48 34 48s21.8-.1 27.1-1.6c2.9-.7 4.6-3.2 5.4-6.1C68 35 68 24 68 24s0-11-1.5-16.3z" fill="#f00"/><path d="M45 24 27 14v20" fill="#fff"/></svg></span></button></div>
+    <div class="video-embed"><button type="button" class="yt-facade" data-yt="n-DiEfaAciI" data-title="Vídeo AIVACS 05" aria-label="Reproducir: Vídeo AIVACS 05"><img src="https://i.ytimg.com/vi/n-DiEfaAciI/hqdefault.jpg" alt="" width="480" height="360" loading="lazy" decoding="async" onerror="this.remove()"><span class="yt-play" aria-hidden="true"><svg viewBox="0 0 68 48" width="56" height="40"><path d="M66.5 7.7c-.8-2.9-2.5-5.4-5.4-6.2C55.8.1 34 0 34 0S12.2.1 6.9 1.6C4 2.3 2.3 4.8 1.5 7.7 0 13 0 24 0 24s0 11 1.5 16.3c.8 2.9 2.5 5.4 5.4 6.2C12.2 47.9 34 48 34 48s21.8-.1 27.1-1.6c2.9-.7 4.6-3.2 5.4-6.1C68 35 68 24 68 24s0-11-1.5-16.3z" fill="#f00"/><path d="M45 24 27 14v20" fill="#fff"/></svg></span></button></div>
+    <div class="video-embed"><button type="button" class="yt-facade" data-yt="HwQ8qH5Yi5g" data-title="Vídeo AIVACS 06" aria-label="Reproducir: Vídeo AIVACS 06"><img src="https://i.ytimg.com/vi/HwQ8qH5Yi5g/hqdefault.jpg" alt="" width="480" height="360" loading="lazy" decoding="async" onerror="this.remove()"><span class="yt-play" aria-hidden="true"><svg viewBox="0 0 68 48" width="56" height="40"><path d="M66.5 7.7c-.8-2.9-2.5-5.4-5.4-6.2C55.8.1 34 0 34 0S12.2.1 6.9 1.6C4 2.3 2.3 4.8 1.5 7.7 0 13 0 24 0 24s0 11 1.5 16.3c.8 2.9 2.5 5.4 5.4 6.2C12.2 47.9 34 48 34 48s21.8-.1 27.1-1.6c2.9-.7 4.6-3.2 5.4-6.1C68 35 68 24 68 24s0-11-1.5-16.3z" fill="#f00"/><path d="M45 24 27 14v20" fill="#fff"/></svg></span></button></div>
   </div>
 </section>
 
@@ -276,14 +277,14 @@
     <h2 class="section-title reveal-up" style="transition-delay:.06s">Contenido corto</h2>
   </div>
   <div class="video-wall vertical-grid reveal-up">
-    <div class="video-embed vertical"><iframe src="https://www.youtube.com/embed/mVk38deDGYU" title="Short AIVACS 01" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
-    <div class="video-embed vertical"><iframe src="https://www.youtube.com/embed/oCgZjAnRqrY" title="Short AIVACS 02" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
-    <div class="video-embed vertical"><iframe src="https://www.youtube.com/embed/zkS9kUB3ziE" title="Short AIVACS 03" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
-    <div class="video-embed vertical"><iframe src="https://www.youtube.com/embed/-hK-9xEQG2s" title="Short AIVACS 04" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
-    <div class="video-embed vertical"><iframe src="https://www.youtube.com/embed/fAaKeDXgeS4" title="Short AIVACS 05" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
-    <div class="video-embed vertical"><iframe src="https://www.youtube.com/embed/ZWHHrOFUhUM" title="Short AIVACS 06" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
-    <div class="video-embed vertical"><iframe src="https://www.youtube.com/embed/G8CwsTd-I2w" title="Short AIVACS 07" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
-    <div class="video-embed vertical"><iframe src="https://www.youtube.com/embed/Ck9PQt14Pag" title="Short AIVACS 08" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
+    <div class="video-embed vertical"><button type="button" class="yt-facade" data-yt="mVk38deDGYU" data-title="Short AIVACS 01" aria-label="Reproducir: Short AIVACS 01"><img src="https://i.ytimg.com/vi/mVk38deDGYU/hqdefault.jpg" alt="" width="480" height="360" loading="lazy" decoding="async" onerror="this.remove()"><span class="yt-play" aria-hidden="true"><svg viewBox="0 0 68 48" width="56" height="40"><path d="M66.5 7.7c-.8-2.9-2.5-5.4-5.4-6.2C55.8.1 34 0 34 0S12.2.1 6.9 1.6C4 2.3 2.3 4.8 1.5 7.7 0 13 0 24 0 24s0 11 1.5 16.3c.8 2.9 2.5 5.4 5.4 6.2C12.2 47.9 34 48 34 48s21.8-.1 27.1-1.6c2.9-.7 4.6-3.2 5.4-6.1C68 35 68 24 68 24s0-11-1.5-16.3z" fill="#f00"/><path d="M45 24 27 14v20" fill="#fff"/></svg></span></button></div>
+    <div class="video-embed vertical"><button type="button" class="yt-facade" data-yt="oCgZjAnRqrY" data-title="Short AIVACS 02" aria-label="Reproducir: Short AIVACS 02"><img src="https://i.ytimg.com/vi/oCgZjAnRqrY/hqdefault.jpg" alt="" width="480" height="360" loading="lazy" decoding="async" onerror="this.remove()"><span class="yt-play" aria-hidden="true"><svg viewBox="0 0 68 48" width="56" height="40"><path d="M66.5 7.7c-.8-2.9-2.5-5.4-5.4-6.2C55.8.1 34 0 34 0S12.2.1 6.9 1.6C4 2.3 2.3 4.8 1.5 7.7 0 13 0 24 0 24s0 11 1.5 16.3c.8 2.9 2.5 5.4 5.4 6.2C12.2 47.9 34 48 34 48s21.8-.1 27.1-1.6c2.9-.7 4.6-3.2 5.4-6.1C68 35 68 24 68 24s0-11-1.5-16.3z" fill="#f00"/><path d="M45 24 27 14v20" fill="#fff"/></svg></span></button></div>
+    <div class="video-embed vertical"><button type="button" class="yt-facade" data-yt="zkS9kUB3ziE" data-title="Short AIVACS 03" aria-label="Reproducir: Short AIVACS 03"><img src="https://i.ytimg.com/vi/zkS9kUB3ziE/hqdefault.jpg" alt="" width="480" height="360" loading="lazy" decoding="async" onerror="this.remove()"><span class="yt-play" aria-hidden="true"><svg viewBox="0 0 68 48" width="56" height="40"><path d="M66.5 7.7c-.8-2.9-2.5-5.4-5.4-6.2C55.8.1 34 0 34 0S12.2.1 6.9 1.6C4 2.3 2.3 4.8 1.5 7.7 0 13 0 24 0 24s0 11 1.5 16.3c.8 2.9 2.5 5.4 5.4 6.2C12.2 47.9 34 48 34 48s21.8-.1 27.1-1.6c2.9-.7 4.6-3.2 5.4-6.1C68 35 68 24 68 24s0-11-1.5-16.3z" fill="#f00"/><path d="M45 24 27 14v20" fill="#fff"/></svg></span></button></div>
+    <div class="video-embed vertical"><button type="button" class="yt-facade" data-yt="-hK-9xEQG2s" data-title="Short AIVACS 04" aria-label="Reproducir: Short AIVACS 04"><img src="https://i.ytimg.com/vi/-hK-9xEQG2s/hqdefault.jpg" alt="" width="480" height="360" loading="lazy" decoding="async" onerror="this.remove()"><span class="yt-play" aria-hidden="true"><svg viewBox="0 0 68 48" width="56" height="40"><path d="M66.5 7.7c-.8-2.9-2.5-5.4-5.4-6.2C55.8.1 34 0 34 0S12.2.1 6.9 1.6C4 2.3 2.3 4.8 1.5 7.7 0 13 0 24 0 24s0 11 1.5 16.3c.8 2.9 2.5 5.4 5.4 6.2C12.2 47.9 34 48 34 48s21.8-.1 27.1-1.6c2.9-.7 4.6-3.2 5.4-6.1C68 35 68 24 68 24s0-11-1.5-16.3z" fill="#f00"/><path d="M45 24 27 14v20" fill="#fff"/></svg></span></button></div>
+    <div class="video-embed vertical"><button type="button" class="yt-facade" data-yt="fAaKeDXgeS4" data-title="Short AIVACS 05" aria-label="Reproducir: Short AIVACS 05"><img src="https://i.ytimg.com/vi/fAaKeDXgeS4/hqdefault.jpg" alt="" width="480" height="360" loading="lazy" decoding="async" onerror="this.remove()"><span class="yt-play" aria-hidden="true"><svg viewBox="0 0 68 48" width="56" height="40"><path d="M66.5 7.7c-.8-2.9-2.5-5.4-5.4-6.2C55.8.1 34 0 34 0S12.2.1 6.9 1.6C4 2.3 2.3 4.8 1.5 7.7 0 13 0 24 0 24s0 11 1.5 16.3c.8 2.9 2.5 5.4 5.4 6.2C12.2 47.9 34 48 34 48s21.8-.1 27.1-1.6c2.9-.7 4.6-3.2 5.4-6.1C68 35 68 24 68 24s0-11-1.5-16.3z" fill="#f00"/><path d="M45 24 27 14v20" fill="#fff"/></svg></span></button></div>
+    <div class="video-embed vertical"><button type="button" class="yt-facade" data-yt="ZWHHrOFUhUM" data-title="Short AIVACS 06" aria-label="Reproducir: Short AIVACS 06"><img src="https://i.ytimg.com/vi/ZWHHrOFUhUM/hqdefault.jpg" alt="" width="480" height="360" loading="lazy" decoding="async" onerror="this.remove()"><span class="yt-play" aria-hidden="true"><svg viewBox="0 0 68 48" width="56" height="40"><path d="M66.5 7.7c-.8-2.9-2.5-5.4-5.4-6.2C55.8.1 34 0 34 0S12.2.1 6.9 1.6C4 2.3 2.3 4.8 1.5 7.7 0 13 0 24 0 24s0 11 1.5 16.3c.8 2.9 2.5 5.4 5.4 6.2C12.2 47.9 34 48 34 48s21.8-.1 27.1-1.6c2.9-.7 4.6-3.2 5.4-6.1C68 35 68 24 68 24s0-11-1.5-16.3z" fill="#f00"/><path d="M45 24 27 14v20" fill="#fff"/></svg></span></button></div>
+    <div class="video-embed vertical"><button type="button" class="yt-facade" data-yt="G8CwsTd-I2w" data-title="Short AIVACS 07" aria-label="Reproducir: Short AIVACS 07"><img src="https://i.ytimg.com/vi/G8CwsTd-I2w/hqdefault.jpg" alt="" width="480" height="360" loading="lazy" decoding="async" onerror="this.remove()"><span class="yt-play" aria-hidden="true"><svg viewBox="0 0 68 48" width="56" height="40"><path d="M66.5 7.7c-.8-2.9-2.5-5.4-5.4-6.2C55.8.1 34 0 34 0S12.2.1 6.9 1.6C4 2.3 2.3 4.8 1.5 7.7 0 13 0 24 0 24s0 11 1.5 16.3c.8 2.9 2.5 5.4 5.4 6.2C12.2 47.9 34 48 34 48s21.8-.1 27.1-1.6c2.9-.7 4.6-3.2 5.4-6.1C68 35 68 24 68 24s0-11-1.5-16.3z" fill="#f00"/><path d="M45 24 27 14v20" fill="#fff"/></svg></span></button></div>
+    <div class="video-embed vertical"><button type="button" class="yt-facade" data-yt="Ck9PQt14Pag" data-title="Short AIVACS 08" aria-label="Reproducir: Short AIVACS 08"><img src="https://i.ytimg.com/vi/Ck9PQt14Pag/hqdefault.jpg" alt="" width="480" height="360" loading="lazy" decoding="async" onerror="this.remove()"><span class="yt-play" aria-hidden="true"><svg viewBox="0 0 68 48" width="56" height="40"><path d="M66.5 7.7c-.8-2.9-2.5-5.4-5.4-6.2C55.8.1 34 0 34 0S12.2.1 6.9 1.6C4 2.3 2.3 4.8 1.5 7.7 0 13 0 24 0 24s0 11 1.5 16.3c.8 2.9 2.5 5.4 5.4 6.2C12.2 47.9 34 48 34 48s21.8-.1 27.1-1.6c2.9-.7 4.6-3.2 5.4-6.1C68 35 68 24 68 24s0-11-1.5-16.3z" fill="#f00"/><path d="M45 24 27 14v20" fill="#fff"/></svg></span></button></div>
   </div>
 </section>
 
@@ -340,7 +341,7 @@
         <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"></path></svg>
         Hablar por WhatsApp
       </a>
-      <a href="mailto:sac.aivacs@gmail.com?subject=Contacto%20v%C3%ADa%20web%20AIVACS" class="btn btn-ghost">Enviar correo</a>
+      <a href="mailto:aivacses@gmail.com?subject=Contacto%20v%C3%ADa%20web%20AIVACS" class="btn btn-ghost">Enviar correo</a>
     </div>
   </div>
 </section>
@@ -367,6 +368,7 @@
     <div class="footer-links">
       <h4 class="footer-heading">Navegación</h4>
       <ul>
+        <li><a href="../#productos">Productos</a></li>
         <li><a href="../#servicos">Qué hacemos</a></li>
         <li><a href="../#processo">Cómo funciona</a></li>
         <li><a href="../#planos">Planes</a></li>
@@ -389,27 +391,63 @@
 
   <div class="footer-bottom">
     <p class="footer-copy">&copy; 2026 AIVACS. Todos los derechos reservados.</p>
-    <p class="footer-copy">sac.aivacs@gmail.com</p>
+    <p class="footer-copy">aivacses@gmail.com</p>
   </div>
 </footer>
 
 <script src="../scripts/animations.js?v=3" defer></script>
 <script src="../scripts/main.js" defer></script>
-<script async src="https://www.instagram.com/embed.js"></script>
 <script>
-  /* Rede de segurança: no Safari do iPhone o Instagram às vezes não informa a
-     altura do quadro e ele fica com altura 0 (só a borda aparece). Se isso
-     acontecer, a altura é calculada aqui pela largura. */
-  window.addEventListener('load', function () {
+  /* Vídeos do YouTube: a página mostra só a miniatura; o player (no modo de
+     privacidade, sem cookies até o play) entra no lugar dela no clique.
+     Antes eram 14 players carregando junto com a página. */
+  document.querySelectorAll('.yt-facade').forEach(function (botao) {
+    botao.addEventListener('click', function () {
+      var player = document.createElement('iframe');
+      player.src = 'https://www.youtube-nocookie.com/embed/' + botao.dataset.yt + '?autoplay=1&rel=0';
+      player.title = botao.dataset.title;
+      player.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
+      player.allowFullscreen = true;
+      botao.replaceWith(player);
+      player.focus();
+    });
+  });
+
+  /* Reels do Instagram: o script do Instagram só carrega quando a parede de
+     reels está chegando na tela, e não junto com a página. */
+  (function () {
+    var parede = document.querySelector('.reel-wall');
+
+    /* Rede de segurança: no Safari do iPhone o Instagram às vezes não informa a
+       altura do quadro e ele fica com altura 0 (só a borda aparece). Se isso
+       acontecer, a altura é calculada aqui pela largura. */
     function ajustar() {
       document.querySelectorAll('.reel-cell iframe').forEach(function (f) {
         var informada = Math.max(parseInt(f.getAttribute('height'), 10) || 0, parseInt(f.style.height, 10) || 0);
         if (informada < 200) f.style.height = Math.round(f.offsetWidth * 1.25 + 240) + 'px';
       });
     }
-    setTimeout(ajustar, 4000);
-    setTimeout(ajustar, 9000);
-  });
+
+    function carregarInstagram() {
+      var script = document.createElement('script');
+      script.async = true;
+      script.src = 'https://www.instagram.com/embed.js';
+      script.onload = function () {
+        setTimeout(ajustar, 4000);
+        setTimeout(ajustar, 9000);
+      };
+      document.body.appendChild(script);
+    }
+
+    if (!parede || !('IntersectionObserver' in window)) return carregarInstagram();
+    var observador = new IntersectionObserver(function (entradas) {
+      if (entradas.some(function (e) { return e.isIntersecting; })) {
+        observador.disconnect();
+        carregarInstagram();
+      }
+    }, { rootMargin: '800px 0px' });
+    observador.observe(parede);
+  })();
 </script>
 
 <button class="scroll-top" aria-label="Volver arriba"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"></polyline></svg></button>

@@ -79,3 +79,60 @@
   .spotlight-card { padding: 32px 18px; }
   .spotlight-live { white-space: normal; text-align: center; width: max-content; max-width: calc(100% - 24px); }
 }
+/* ---- Abertura das vitrines (#productos) ----
+   Ainda no visual escuro da AIVACS: avisa que ali começam os produtos
+   próprios e funciona como índice. Cada item leva a cor do seu produto,
+   a mesma do logo na vitrine logo abaixo. */
+#productos {
+  background: var(--bg-secondary);
+  border-top: 1px solid var(--border);
+  padding: 88px 6% 80px;
+}
+.products-intro { text-align: center; max-width: 640px; margin: 0 auto 48px; }
+.products-intro .section-title { text-wrap: balance; }
+.products-intro .section-subtitle { margin: 0 auto; max-width: 560px; }
+
+.products-index {
+  list-style: none; padding: 0; margin: 0 auto; max-width: 1200px;
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
+}
+.products-index li + li { border-left: 1px solid var(--border); }
+.products-index-link {
+  display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 14px;
+  height: 100%; padding: 22px 20px;
+  text-decoration: none; color: inherit;
+  transition: background var(--transition);
+}
+.products-index-logo {
+  width: 36px; height: 36px; border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+  background: var(--product-color);
+}
+.products-index-text { display: flex; flex-direction: column; gap: 3px; min-width: 0; }
+.products-index-text strong {
+  font-family: var(--font-display); font-weight: 700; font-size: 0.98rem; color: var(--text-primary);
+}
+.products-index-text span { font-size: 0.8rem; line-height: 1.45; color: var(--text-secondary); }
+.products-index-arrow {
+  color: var(--text-secondary);
+  transition: color var(--transition), transform var(--transition);
+}
+.products-index-link:hover { background: var(--bg-glass); }
+.products-index-link:hover .products-index-arrow { color: var(--product-color); transform: translateY(3px); }
+.products-index-link:focus-visible {
+  outline: 2px solid var(--accent); outline-offset: -2px; border-radius: 4px;
+}
+
+@media (max-width: 1024px) {
+  .products-index { grid-template-columns: repeat(2, 1fr); }
+  .products-index li:nth-child(3) { border-left: none; }
+  .products-index li:nth-child(n+3) { border-top: 1px solid var(--border); }
+}
+@media (max-width: 600px) {
+  #productos { padding: 64px 5% 56px; }
+  .products-intro { margin-bottom: 32px; }
+  .products-index { grid-template-columns: 1fr; }
+  .products-index li + li { border-left: none; border-top: 1px solid var(--border); }
+  .products-index-link { padding: 18px 6px; }
+}

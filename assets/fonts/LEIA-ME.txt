@@ -1,0 +1,7 @@
+Fontes do site AIVACS (subconjunto latino, formato WOFF2 variável), baixadas
+do Google Fonts para serem servidas pelo próprio site.
+
+Plus Jakarta Sans, DM Sans, JetBrains Mono, Space Grotesk, Fraunces e Fredoka
+são distribuídas sob a SIL Open Font License 1.1:
+https://openfontlicense.org/open-font-license-official-text/
+Créditos e direitos autorais de cada família: https://fonts.google.com
