@@ -641,6 +641,48 @@ section { padding: 96px 6%; position: relative; overflow: hidden; }
 }
 .portfolio-card:hover .pf-line { width: 100%; }
 
+/* ===== SOBRE (quem está por trás) ===== */
+#sobre { background: var(--bg-primary); }
+.sobre-wrap {
+  max-width: 1120px; margin: 0 auto;
+  display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
+  gap: clamp(40px, 6vw, 96px); align-items: center;
+}
+.sobre-texto .section-title { margin-bottom: 22px; text-wrap: balance; }
+.sobre-lead {
+  font-size: 1.1rem; line-height: 1.75; color: var(--text-primary);
+  max-width: 34em; margin-bottom: 14px; text-wrap: pretty;
+}
+.sobre-p {
+  font-size: 1rem; line-height: 1.75; color: var(--text-secondary);
+  max-width: 34em; margin-bottom: 32px; text-wrap: pretty;
+}
+.sobre-ficha { margin: 0; border-top: 1px solid var(--border); }
+.sobre-fila {
+  display: grid; grid-template-columns: 9.5rem minmax(0, 1fr); gap: 24px;
+  align-items: baseline;
+  padding: 22px 0; border-bottom: 1px solid var(--border);
+}
+.sobre-fila dt { font-size: 0.85rem; color: var(--text-secondary); line-height: 1.4; }
+.sobre-fila dd { margin: 0; display: flex; flex-direction: column; gap: 4px; }
+.sobre-valor {
+  font-family: var(--font-display); font-weight: 700;
+  font-size: 1.25rem; line-height: 1.25; letter-spacing: -0.01em;
+  color: var(--text-primary);
+}
+.sobre-ano {
+  font-size: clamp(2.4rem, 5vw, 3.4rem); line-height: 1; letter-spacing: -0.03em;
+  color: var(--accent); font-variant-numeric: tabular-nums;
+}
+.sobre-nota { font-size: 0.9rem; line-height: 1.5; color: var(--text-secondary); text-wrap: pretty; }
+
+@media (max-width: 900px) {
+  .sobre-wrap { grid-template-columns: 1fr; }
+}
+@media (max-width: 480px) {
+  .sobre-fila { grid-template-columns: 1fr; gap: 6px; padding: 18px 0; }
+}
+
 /* ===== INVESTIMENTO ===== */
 #planos { background: var(--bg-secondary); }
 
