@@ -1,0 +1,38 @@
+# AIVACS
+
+> AIVACS es una agencia de soluciones digitales para empresas de toda España. Crea páginas web, chatbots y automatizaciones de WhatsApp, software de gestión a medida y campañas de publicidad en Meta Ads y Google Ads. También desarrolla productos de software propios: Obra Organize, Emite Fácil, WorkProspec y Brilla House.
+
+Datos clave:
+
+- Zona de servicio: toda España. El diagnóstico, las revisiones y la entrega se hacen a distancia, por WhatsApp, correo electrónico o videollamada.
+- Idiomas de atención: español y portugués.
+- Precios: no hay paquetes fijos. El diagnóstico es gratuito y después se envía una propuesta a medida con alcance, plazo e inversión, sin compromiso.
+- Proceso de trabajo: diagnóstico, planificación, ejecución y entrega con acompañamiento.
+- Tecnologías: Next.js, Lovable, Supabase, n8n, API oficial de WhatsApp Business, Meta Ads, Google Ads e inteligencia artificial (Claude y ChatGPT).
+- Contacto: WhatsApp +34 656 995 156 (https://wa.me/34656995156), correo aivacses@gmail.com, Instagram https://www.instagram.com/aivacses/
+
+## Servicios
+
+- [Diseño de páginas web para empresas](https://es.aivacs.online/servicios/paginas-web/): páginas web profesionales, rápidas y preparadas para Google, pensadas para convertir visitas en clientes.
+- [Chatbot de WhatsApp y automatización para empresas](https://es.aivacs.online/servicios/chatbot-whatsapp/): chatbots de WhatsApp conectados a los sistemas de la empresa que responden al instante, envían presupuestos y facturas, agendan citas y pasan la conversación al equipo. Automatizaciones con n8n.
+- [Software de gestión a medida para empresas](https://es.aivacs.online/servicios/software-a-medida/): sistemas de gestión para obras, presupuestos, facturación Verifactu, equipos y procesos.
+- [Gestión de campañas en Meta Ads y Google Ads](https://es.aivacs.online/servicios/publicidad-meta-google-ads/): campañas en Instagram, Facebook y Google, con creatividades, vídeos institucionales y reels.
+
+## Productos propios
+
+Todos tienen demo en vivo, sin registro y con datos de ejemplo.
+
+- [Obra Organize](https://obraorganize.digitproduc.com/): gestión de obras, equipos y presupuestos para empresas de construcción y reformas. Control de proyectos, plazos y presupuestos, pagos al equipo por obra y presupuestos en PDF. Disponible en español, portugués e inglés.
+- [Emite Fácil](https://emitefacil.digitproduc.com/): facturación con facturas Verifactu emitidas automáticamente en cada pedido o presupuesto aprobado, tienda con cobro online por tarjeta e integración con Obra Organize.
+- [WorkProspec](https://prospec.digitproduc.com/): prospección de empresas reales por categoría y ciudad con Google Places, y contacto por la API oficial de WhatsApp Business con embudo de leads.
+- [Brilla House](https://brilla.digitproduc.com/): marketplace que conecta clientes con profesionales de limpieza en toda España, con búsqueda por municipio, presupuestos, agenda de reservas, chat y valoraciones.
+
+## Portafolio
+
+- [Sistemas de gestión y páginas web](https://es.aivacs.online/portafolio/sistemas/): sistemas y páginas web creados por AIVACS, con demos de Obra Organize, Emite Fácil y WorkProspec.
+- [Demo de chatbot de WhatsApp y automatizaciones](https://es.aivacs.online/portafolio/automatizaciones/): demo interactiva de chatbot y ejemplos de automatizaciones con n8n.
+- [Publicidad: campañas, vídeos y reels](https://es.aivacs.online/portafolio/publicidad/): vídeos institucionales, reels con IA y ejemplos de campañas en Meta Ads y Google Ads.
+
+## Optional
+
+- [Página principal](https://es.aivacs.online/): resumen de servicios, productos, proceso de trabajo y preguntas frecuentes.

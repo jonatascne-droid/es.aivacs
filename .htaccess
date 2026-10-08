@@ -4,6 +4,9 @@
 # Endereço que não existe mostra a página 404 em espanhol (com status 404).
 ErrorDocument 404 /404.html
 
+# Arquivos de texto (robots.txt, llms.txt) com acentos corretos.
+AddDefaultCharset UTF-8
+
 <IfModule mod_rewrite.c>
   RewriteEngine On
 
