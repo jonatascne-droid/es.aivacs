@@ -1,0 +1,439 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Conselho: agência de agentes de IA</title>
+<style>
+  :root {
+    --bg: #ffffff;
+    --surface: #f7f7f5;
+    --border: #e4e2dc;
+    --text: #1d1d1b;
+    --muted: #5f5d57;
+    --accent: #2f5d50;
+    --accent-soft: #e6efeb;
+    --warn: #8a5a12;
+    --warn-soft: #fbf1df;
+    --yes: #2f6b3f;
+    --yes-soft: #e3f1e6;
+    --no: #9b2c2c;
+    --no-soft: #f8e4e2;
+    --part: #7a6512;
+    --part-soft: #f6efd2;
+    --na: #8b8982;
+    --c-contra: #9b2c2c;
+    --c-pp: #3d4f8f;
+    --c-exp: #8a5a12;
+    --c-out: #5b4a86;
+    --c-exe: #2f6b3f;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font: 16px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  }
+  .wrap { max-width: 860px; margin: 0 auto; padding: 40px 20px 64px; }
+  header .kicker {
+    font-size: 13px; letter-spacing: .08em; text-transform: uppercase;
+    color: var(--muted); margin: 0 0 8px;
+  }
+  h1 { font-size: 28px; line-height: 1.25; margin: 0 0 16px; }
+  h2 { font-size: 21px; margin: 40px 0 12px; }
+  h3 { font-size: 17px; margin: 24px 0 8px; }
+  p { margin: 0 0 12px; }
+  ul { margin: 0 0 12px; padding-left: 22px; }
+  li { margin-bottom: 6px; }
+  .question {
+    background: var(--surface); border: 1px solid var(--border); border-radius: 10px;
+    padding: 16px 18px; color: var(--muted); font-size: 15px;
+  }
+  .question strong { color: var(--text); }
+  .first-step {
+    margin: 28px 0 8px; padding: 20px 22px; border-radius: 12px;
+    background: var(--accent-soft); border: 1px solid #c7dbd2;
+  }
+  .first-step .label {
+    font-size: 12px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase;
+    color: var(--accent); margin-bottom: 6px;
+  }
+  .first-step p { margin: 0; font-size: 17px; }
+  .bottom-line { font-size: 18px; margin: 20px 0 0; }
+  .answers {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 12px; margin: 16px 0;
+  }
+  .answer {
+    border: 1px solid var(--border); border-radius: 10px; padding: 14px 16px; background: var(--bg);
+  }
+  .answer .q { font-size: 13px; color: var(--muted); margin-bottom: 4px; }
+  .answer .a { font-weight: 700; margin-bottom: 4px; }
+  .answer p { font-size: 15px; margin: 0; }
+  .phases { display: grid; gap: 12px; margin: 16px 0; }
+  .phase {
+    border: 1px solid var(--border); border-left: 4px solid var(--accent);
+    border-radius: 8px; padding: 14px 16px;
+  }
+  .phase.later { border-left-color: var(--na); }
+  .phase h3 { margin: 0 0 6px; font-size: 16px; }
+  .phase ul { margin: 0; font-size: 15px; }
+  .trigger {
+    background: var(--warn-soft); border: 1px solid #ecd9b3; border-radius: 10px;
+    padding: 14px 16px; margin: 12px 0; font-size: 15px;
+  }
+  .trigger strong { color: var(--warn); }
+  .table-wrap { overflow-x: auto; margin: 12px 0; border: 1px solid var(--border); border-radius: 10px; }
+  table { border-collapse: collapse; width: 100%; min-width: 620px; font-size: 14px; }
+  th, td { padding: 10px 12px; border-bottom: 1px solid var(--border); text-align: center; vertical-align: middle; }
+  th:first-child, td:first-child { text-align: left; }
+  thead th { background: var(--surface); font-weight: 600; font-size: 13px; }
+  tbody tr:last-child td { border-bottom: 0; }
+  .pill {
+    display: inline-block; min-width: 30px; padding: 2px 8px; border-radius: 999px;
+    font-weight: 700; font-size: 13px;
+  }
+  .y { background: var(--yes-soft); color: var(--yes); }
+  .n { background: var(--no-soft); color: var(--no); }
+  .p { background: var(--part-soft); color: var(--part); }
+  .x { color: var(--na); }
+  .legend { font-size: 13px; color: var(--muted); display: flex; flex-wrap: wrap; gap: 14px; margin-top: 8px; }
+  .votes { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 12px; margin: 12px 0; }
+  .vote { border: 1px solid var(--border); border-radius: 10px; padding: 14px 16px; }
+  .vote .k { font-size: 13px; color: var(--muted); }
+  .vote .v { font-size: 18px; font-weight: 700; }
+  .vote .s { font-size: 14px; color: var(--muted); }
+  details {
+    border: 1px solid var(--border); border-radius: 10px; margin: 10px 0; background: var(--bg);
+  }
+  details > summary {
+    cursor: pointer; padding: 12px 16px; font-weight: 600; list-style: none;
+    display: flex; align-items: center; gap: 10px;
+  }
+  details > summary::-webkit-details-marker { display: none; }
+  details > summary::before {
+    content: "▸"; color: var(--muted); transition: transform .15s ease;
+  }
+  details[open] > summary::before { transform: rotate(90deg); }
+  details .body { padding: 0 18px 14px; font-size: 15px; }
+  .dot { width: 10px; height: 10px; border-radius: 50%; display: inline-block; flex: none; }
+  .tag { font-weight: 400; color: var(--muted); font-size: 13px; }
+  .note { font-size: 14px; color: var(--muted); }
+  footer {
+    margin-top: 48px; padding-top: 16px; border-top: 1px solid var(--border);
+    font-size: 13px; color: var(--muted);
+  }
+  code { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: .9em; background: var(--surface); padding: 1px 5px; border-radius: 4px; }
+  @media (max-width: 480px) {
+    h1 { font-size: 23px; }
+    .wrap { padding: 28px 16px 48px; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <p class="kicker">Conselho de IAs · AIVACS · 10/10/2026</p>
+  <h1>Agência de agentes de IA para clientes de marketing digital: construir agora ou não?</h1>
+  <div class="question">
+    <strong>A pergunta:</strong> vale construir um software ou uma "agência de agentes de IA" que automatize campanhas no Meta Ads e no Google Ads, crie e publique posts no Instagram e ofereça um painel para o dono e uma "área do cliente" somente leitura? Seria uma agência por cliente? Ela consome os créditos do Claude? Ou é melhor um sistema próprio com GitHub, Supabase e Hostinger?
+  </div>
+</header>
+
+<section>
+  <div class="first-step">
+    <div class="label">A primeira coisa a fazer</div>
+    <p>Hoje, em cada conta de anúncios de cliente, configure o limite de gasto da conta na Meta e o teto de orçamento no Google. Assim nenhum erro, seu ou da IA, passa de um valor que o cliente aceitou por escrito.</p>
+  </div>
+
+  <p class="bottom-line"><strong>Veredito:</strong> não construa a plataforma agora. Opere à mão por três meses com o que você já tem (Claude Code, skills e MCP), protegido por travas reais nas plataformas e por contrato. O registro desse trabalho vira a especificação do sistema próprio, que você constrói depois na stack que já domina.</p>
+</section>
+
+<section>
+  <h2>Respostas diretas às quatro perguntas</h2>
+  <div class="answers">
+    <div class="answer">
+      <div class="q">Uma "agência de IA" por cliente?</div>
+      <div class="a">Não.</div>
+      <p>Um sistema só, com um contexto por cliente: uma pasta com CLAUDE.md contendo briefing, tom, contas, metas, teto de verba e histórico.</p>
+    </div>
+    <div class="answer">
+      <div class="q">Consome os créditos do Claude?</div>
+      <div class="a">Hoje, a assinatura. Sozinho, a API.</div>
+      <p>Enquanto você opera, usa a assinatura. O que rodar sem você (resumos, alertas) vai para a API, cobrada por token. Não deixe a assinatura operando clientes sozinha.</p>
+    </div>
+    <div class="answer">
+      <div class="q">Sistema próprio (GitHub + Supabase + Hostinger)?</div>
+      <div class="a">Sim, mas não agora.</div>
+      <p>Quando o gatilho abaixo for atingido, construa na stack que você já usa nos seus SaaS.</p>
+    </div>
+    <div class="answer">
+      <div class="q">Como desenvolver?</div>
+      <div class="a">Em fases.</div>
+      <p>Primeiro operação manual com travas, depois o sistema com leitura de dados e, por último, a escrita automática em campanhas.</p>
+    </div>
+  </div>
+
+  <h2>O caminho em fases</h2>
+  <div class="phases">
+    <div class="phase">
+      <h3>Fase 0 · primeira semana</h3>
+      <ul>
+        <li>Travas de gasto na Meta e no Google em todas as contas.</li>
+        <li>Contas de anúncios, página e Instagram no nome do cliente, com a AIVACS como parceira no Business Manager.</li>
+        <li>Contrato com cláusula de responsabilidade sobre a verba e acordo de RGPD.</li>
+        <li>Uma pasta por cliente com o próprio <code>CLAUDE.md</code>.</li>
+        <li>Postiz (versão cloud) para agendar e publicar os posts.</li>
+        <li>Resumo mensal pelo WhatsApp. Looker Studio só para quem pedir.</li>
+        <li>Pedir já a verificação de empresa na Meta e o developer token do Google, que levam semanas.</li>
+      </ul>
+    </div>
+    <div class="phase">
+      <h3>Fase 1 · meses 1 a 3</h3>
+      <ul>
+        <li>Ritual semanal por cliente: o Claude lê as métricas pelo MCP e propõe mudanças. Você aprova e ele executa.</li>
+        <li>Um <code>change_log.md</code> por cliente registrando cada alteração e o tempo gasto. Esse registro vira a especificação do sistema.</li>
+      </ul>
+    </div>
+    <div class="phase">
+      <h3>Fase 2 · sistema próprio</h3>
+      <ul>
+        <li>Next.js + Supabase, código no GitHub e front na Hostinger, como nos outros produtos.</li>
+        <li>Tabelas de clientes, contas, métricas diárias, posts, aprovações e log.</li>
+        <li>RLS separando o que o dono vê do que cada cliente vê. Tokens guardados no Supabase Vault.</li>
+        <li>Edge Functions com pg_cron puxando métricas da Meta e do Google, só leitura no começo.</li>
+        <li>API do Claude gerando o resumo semanal e alertas de anomalia, com envio pelo n8n.</li>
+        <li>Área do cliente com login: ver os números e aprovar posts.</li>
+        <li>Escrita em campanhas por último, com fila de aprovação e limites no código.</li>
+      </ul>
+    </div>
+    <div class="phase later">
+      <h3>Fase 3 · depois</h3>
+      <ul>
+        <li>Avaliar o produto maior: ligar anúncio, conversa no WhatsApp e venda para negócio local.</li>
+      </ul>
+    </div>
+  </div>
+  <div class="trigger">
+    <strong>Gatilho para começar a Fase 2</strong> (as três condições juntas): 5 clientes pagando, aprovações da Meta e do Google concedidas e o log mostrando mais de 2 horas por semana, por cliente, em tarefas repetidas. Antes disso, construir é fugir de vender.
+  </div>
+</section>
+
+<section>
+  <h2>Quem concordou com o quê</h2>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Posição</th>
+          <th><span class="dot" style="background:var(--c-contra)"></span> Contrário</th>
+          <th><span class="dot" style="background:var(--c-pp)"></span> Primeiros Princípios</th>
+          <th><span class="dot" style="background:var(--c-exp)"></span> Expansionista</th>
+          <th><span class="dot" style="background:var(--c-out)"></span> Outsider</th>
+          <th><span class="dot" style="background:var(--c-exe)"></span> Executor</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Não construir a plataforma agora</td>
+          <td><span class="pill y">Sim</span></td>
+          <td><span class="pill y">Sim</span></td>
+          <td><span class="pill n">Não</span></td>
+          <td><span class="pill y">Sim</span></td>
+          <td><span class="pill y">Sim</span></td>
+        </tr>
+        <tr>
+          <td>Um contexto por cliente, não uma "agência" por cliente</td>
+          <td><span class="pill y">Sim</span></td>
+          <td><span class="pill y">Sim</span></td>
+          <td><span class="pill y">Sim</span></td>
+          <td><span class="x">—</span></td>
+          <td><span class="pill y">Sim</span></td>
+        </tr>
+        <tr>
+          <td>Humano aprova toda mudança de verba</td>
+          <td><span class="pill y">Sim</span></td>
+          <td><span class="pill y">Sim</span></td>
+          <td><span class="x">—</span></td>
+          <td><span class="pill y">Sim</span></td>
+          <td><span class="pill y">Sim</span></td>
+        </tr>
+        <tr>
+          <td>Usar ferramentas prontas (Postiz, Looker Studio)</td>
+          <td><span class="pill y">Sim</span></td>
+          <td><span class="pill y">Sim</span></td>
+          <td><span class="pill p">Em parte</span></td>
+          <td><span class="pill p">Em parte</span></td>
+          <td><span class="pill y">Sim</span></td>
+        </tr>
+        <tr>
+          <td>Área do cliente com painel vale a pena já</td>
+          <td><span class="pill n">Não</span></td>
+          <td><span class="pill p">Em parte</span></td>
+          <td><span class="pill y">Sim</span></td>
+          <td><span class="pill n">Não</span></td>
+          <td><span class="pill y">Sim</span></td>
+        </tr>
+        <tr>
+          <td>Há um SaaS vendável aqui</td>
+          <td><span class="pill n">Não</span></td>
+          <td><span class="pill p">Depois</span></td>
+          <td><span class="pill y">Sim</span></td>
+          <td><span class="x">—</span></td>
+          <td><span class="pill p">Depois</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="legend">
+    <span><span class="pill y">Sim</span> defendeu</span>
+    <span><span class="pill n">Não</span> foi contra</span>
+    <span><span class="pill p">Em parte</span> com ressalvas</span>
+    <span><span class="x">—</span> não abordou</span>
+  </div>
+
+  <h3>Revisão cruzada às cegas</h3>
+  <div class="votes">
+    <div class="vote">
+      <div class="k">Resposta mais forte</div>
+      <div class="v">Executor · 5 de 5 votos</div>
+      <div class="s">Única que virou um plano para a semana. Primeiros Princípios ficou logo atrás em 3 revisões.</div>
+    </div>
+    <div class="vote">
+      <div class="k">Maior ponto cego</div>
+      <div class="v">Expansionista · 5 de 5 votos</div>
+      <div class="s">Propõe white-label e comparativos entre clientes tendo poucos clientes, e ignora o risco de mexer na verba deles.</div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>Onde o conselho concorda</h2>
+  <ul>
+    <li><strong>Não construa a plataforma agora.</strong> Quatro dos cinco conselheiros chegaram a isso cada um por um caminho. Com poucos clientes, o gargalo é vender, entregar e reter.</li>
+    <li><strong>"Uma agência por cliente" é só uma imagem.</strong> O que muda entre clientes é o contexto. A infraestrutura é a mesma.</li>
+    <li><strong>Créditos:</strong> assinatura enquanto você opera, API para o que roda sozinho.</li>
+    <li><strong>Humano aprova toda mudança de verba.</strong> Publicar e mostrar números já existe pronto.</li>
+    <li><strong>O cliente quer três respostas:</strong> quanto gastou, quantos contatos chegaram e se vale continuar. Um resumo pelo WhatsApp provavelmente segura mais o cliente do que um painel.</li>
+  </ul>
+
+  <h2>Onde o conselho diverge</h2>
+  <ul>
+    <li><strong>Expansionista contra os demais.</strong> A AIVACS já tem o bot de WhatsApp no n8n e poderia ligar anúncio → conversa → venda, coisa que Reportei e Supermetrics não fazem. Os outros respondem que isso exige registro de vendas, que o negócio local quase nunca tem, e que white-label com três clientes não se sustenta. Os dois lados têm razão: é o produto certo na hora errada.</li>
+    <li><strong>Painel ou mensagem.</strong> O Executor quer o Looker Studio desde já. O Outsider e o Contrário dizem que ninguém abre painel e que o cliente quer é aprovar o post antes de ir ao ar. Um teste barato com os primeiros clientes resolve isso.</li>
+    <li><strong>Quando começar a construir.</strong> O Contrário fala em 10 clientes e o Executor em 5. Os revisores preferem medir horas e margem por cliente, porque é isso que aperta de verdade.</li>
+  </ul>
+
+  <h2>Pontos cegos que só a revisão pegou</h2>
+  <ul>
+    <li><strong>Regra no CLAUDE.md não é trava.</strong> O MCP tem permissão de escrita, então o limite precisa estar na própria plataforma.</li>
+    <li><strong>De quem são as contas.</strong> Elas ficam no nome do cliente, com a AIVACS como parceira, para garantir uma saída limpa. Talvez isso também adie a necessidade de App Review próprio. Vale confirmar na documentação da Meta.</li>
+    <li><strong>Postiz.</strong> A versão self-hosted provavelmente exige um app Meta próprio. A cloud evita isso no começo.</li>
+    <li><strong>RGPD.</strong> Contrato de encarregado do tratamento com cada cliente, cobrindo Postiz, Supermetrics e Anthropic como subprocessadores. Dados de clientes numa assinatura individual talvez não sejam o ideal. Vale considerar o plano Team ou a API com DPA. Também vale checar a transparência exigida pelo AI Act e o rótulo de IA da Meta para criativos.</li>
+    <li><strong>Contrato.</strong> Cláusula de responsabilidade por erro de verba e registro de cada alteração feita pela IA.</li>
+    <li><strong>Preço e capacidade.</strong> Ninguém definiu preço, margem nem quantos clientes você aguenta sozinho.</li>
+  </ul>
+  <p class="note">Os pontos jurídicos acima (RGPD, AI Act, regras de App Review) foram levantados pelos conselheiros e precisam ser confirmados com fonte oficial ou com um profissional antes de servirem de base para decisão.</p>
+</section>
+
+<section>
+  <h2>Respostas completas dos conselheiros</h2>
+
+  <details>
+    <summary><span class="dot" style="background:var(--c-contra)"></span> O Contrário <span class="tag">· procura a falha fatal</span></summary>
+    <div class="body">
+      <p>A falha fatal: você quer construir a fábrica antes de ter a demanda. "Poucos clientes novos" não justificam plataforma. Com 3 clientes, o gargalo é vender e reter, não automatizar. E você já tem quatro SaaS no ar. Quanto eles faturam? Se a resposta for "pouco", o padrão é construir para não ter que vender.</p>
+      <p>Perguntas que você está evitando:</p>
+      <ol>
+        <li><strong>Quem paga quando o agente erra?</strong> Um orçamento diário com um zero a mais, uma campanha que não pausa no fim de semana, um anúncio reprovado que derruba a conta de anúncios do cliente. Seu contrato cobre isso? "A IA fez" não serve de defesa diante de um cliente que perdeu 2.000 €.</li>
+        <li><strong>Concentração de risco.</strong> Um único app Meta guarda os tokens de todos os clientes. Se a Meta restringir o app ou o seu Business Manager (acontece sem aviso e sem suporte humano), todos os clientes caem juntos. O mesmo vale para operar clientes na sua assinatura do Claude: se a conta for bloqueada, você perde a ferramenta com que faz tudo.</li>
+        <li><strong>Contra quem você está otimizando?</strong> Advantage+ e Performance Max já são IA ajustando lance, público e criativo. Um agente mexendo todo dia reinicia a fase de aprendizado e piora o resultado.</li>
+        <li><strong>Cliente faz login em dashboard?</strong> Quase nunca. Ele quer um resumo no WhatsApp e uma reunião por mês. Área do cliente vira manutenção que ninguém usa.</li>
+        <li><strong>SaaS vendável contra quem?</strong> Metricool, Reportei, Madgicx e a própria Meta, que já têm distribuição e IA nativa. Qual seria a sua vantagem real?</li>
+      </ol>
+      <p>"Agência de IA por cliente" é metáfora, não arquitetura. É o mesmo prompt com outro contexto, que você teria de manter N vezes.</p>
+      <p><strong>Caminho:</strong> opere na mão com Claude Code + MCP, com aprovação humana em toda alteração de verba. Use Looker Studio para os relatórios e Postiz para agendar posts. Anote o que você repete. Construa só quando 10 clientes pagantes tiverem a mesma dor.</p>
+    </div>
+  </details>
+
+  <details>
+    <summary><span class="dot" style="background:var(--c-pp)"></span> O Pensador de Primeiros Princípios <span class="tag">· reconstrói o problema</span></summary>
+    <div class="body">
+      <p>Você está fazendo a pergunta errada. A pergunta real não é "como construo uma agência de agentes". É "qual gargalo me impede de atender 10 clientes com margem e mantê-los?". Com poucos clientes, esse gargalo ainda não existe. Você está desenhando a solução antes de sentir o problema.</p>
+      <p>Desmonte os quatro itens. São quatro problemas diferentes, não um software só:</p>
+      <ul>
+        <li><strong>Área do cliente e dashboard:</strong> é um problema de confiança e retenção, não de engenharia. O Looker Studio com conectores resolve isso numa tarde.</li>
+        <li><strong>Publicação de posts:</strong> é um problema já resolvido (Postiz, Meta Business Suite). Construir isso é reinventar algo que já existe e passar pelo App Review sem necessidade.</li>
+        <li><strong>Criação e otimização de campanhas:</strong> é o único item com valor de verdade, e também onde está o risco de queimar a verba do cliente. Ter um humano decidindo não é limitação: é justamente o que você vende. E você já tem isso com Claude Code e os MCPs do Meta e do Google.</li>
+      </ul>
+      <p>"Uma agência por cliente" é uma metáfora errada. Agente não é funcionário. O que muda de um cliente para outro é o contexto, não a infraestrutura. Basta uma pasta por cliente com briefing, tom de voz, público, limites de orçamento, histórico de decisões e regras como "nunca subir o orçamento mais de X% sem aprovação". Isso é 90% da "agência de IA", não custa nada e roda na sua assinatura, porque quem opera é você.</p>
+      <p>Sobre créditos, a dúvida desaparece. Enquanto você opera, usa a assinatura. A API só entra no que precisa rodar sem você, como relatório semanal ou alerta de anomalia, e isso custa centavos.</p>
+      <p>Sobre virar SaaS: não dá para transformar em produto um processo que você nunca repetiu. Atenda de 5 a 10 clientes na mão e anote o que faz toda semana. Aí o software que vale construir fica óbvio, e provavelmente bem menor do que você imagina hoje.</p>
+    </div>
+  </details>
+
+  <details>
+    <summary><span class="dot" style="background:var(--c-exp)"></span> O Expansionista <span class="tag">· procura o potencial escondido</span></summary>
+    <div class="body">
+      <p>Vocês estão vendo isso como "automatizar meus primeiros clientes", e isso é pensar pequeno. A AIVACS já faz sites, chatbot de WhatsApp (n8n), tráfego pago e software sob medida, mas ninguém está juntando essas peças. Reportei e Supermetrics não ligam o clique no anúncio à conversa no WhatsApp e depois à venda. A AIVACS consegue ligar. A área do cliente deveria mostrar o custo por cliente fechado, cruzando os dados da Meta e do Google com as conversas do bot e o CRM. Esse é o produto.</p>
+      <p>Segundo: não é "uma agência de IA por cliente". É uma plataforma única, com roteiros prontos por nicho: reformas, clínicas, limpeza. Obra Organize e Brilla House já apontam para esses nichos. Cada cliente novo alimenta comparativos que só vocês terão.</p>
+      <p>Terceiro: quem já usa os SaaS de vocês é um canal de venda pronto. Quem usa o Obra Organize é construtor e precisa de clientes. Dá para oferecer o serviço de marketing de dentro do próprio produto.</p>
+      <p>Quarto: a burocracia (aprovação do app pela Meta, developer token do Google, RGPD) parece obstáculo, mas protege vocês. Depois de aprovada, segura concorrentes e permite vender a plataforma com a marca de outras agências pequenas na Espanha, em Portugal e no Brasil.</p>
+      <p>O caminho maior: hoje o serviço é o laboratório, amanhã vira plataforma, um "sistema operacional de crescimento" para negócio local que vende pelo WhatsApp.</p>
+    </div>
+  </details>
+
+  <details>
+    <summary><span class="dot" style="background:var(--c-out)"></span> O Outsider <span class="tag">· olha de fora, como o cliente</span></summary>
+    <div class="body">
+      <p>Olhando de fora, a pergunta inteira está escrita na língua de quem constrói, não na de quem paga. O dono de uma padaria em Valência não sabe o que é "agente", "MCP" ou "ROAS", e não quer saber. Ele quer três respostas. Quanto eu gastei? Quantos clientes chegaram? Vale a pena continuar?</p>
+      <ol>
+        <li><strong>O painel "somente leitura" é o contrário do que o cliente quer.</strong> O que ele de fato faria nessa área é aprovar ou recusar o post antes de ir ao ar, e avisar "esse contato não prestou".</li>
+        <li><strong>Os números vão brigar com a realidade dele.</strong> A Meta diz 40 leads, o Google diz 25, e o telefone tocou 8 vezes. E o dado que importa (virou venda?) nenhuma API entrega. Só perguntando a ele.</li>
+        <li><strong>"IA" assusta quem paga a verba.</strong> Venda resultado, com um humano responsável. A IA é ferramenta interna, não argumento de venda.</li>
+        <li><strong>Painel é coisa que se abre duas vezes e se esquece.</strong> Um resumo mensal em espanhol simples, pelo WhatsApp, com quatro números e uma frase de "o que vamos mudar", provavelmente retém mais cliente do que qualquer dashboard.</li>
+      </ol>
+      <p>Teste antes de construir: faça esse relatório à mão, até num PDF, durante dois meses. Se ninguém pedir login, não construa login.</p>
+    </div>
+  </details>
+
+  <details>
+    <summary><span class="dot" style="background:var(--c-exe)"></span> O Executor <span class="tag">· o que fazer na segunda-feira</span></summary>
+    <div class="body">
+      <p>Não construa plataforma agora. Você tem poucos clientes e já tem 80% do "sistema" funcionando: Claude Code, skills e MCP do Meta Ads. Falta só publicar e mostrar dados. Isso se resolve em uma semana, sem escrever código.</p>
+      <ol>
+        <li><strong>Criar <code>clientes/&lt;nome&gt;/CLAUDE.md</code></strong> com briefing, tom de voz, IDs das contas, metas, verba máxima e o que é proibido mexer. Continua sendo a sua assinatura, uso interativo.</li>
+        <li><strong>Instalar o Postiz</strong> e conectar o Instagram dos clientes. As skills geram o post, o Postiz agenda e publica.</li>
+        <li><strong>Montar a "área do cliente" no Looker Studio.</strong> Google Ads tem conector nativo; o Meta entra por um conector pago. Um template por cliente, link só de leitura.</li>
+        <li><strong>Ritual semanal de 1h por cliente:</strong> o Claude lê as métricas pelo MCP, propõe mudanças, você aprova e ele executa. Nenhuma alteração de verba sem o seu "ok".</li>
+        <li><strong>Abrir hoje</strong> a verificação de empresa na Meta e o pedido do developer token do Google. Isso leva semanas e começa a correr enquanto você atende.</li>
+      </ol>
+      <p>Só construa o sistema Supabase quando tiver uns 5 clientes pagando e a rotina manual tiver mostrado o que se repete toda semana. O SaaS vendável vem depois de 3 meses dessa operação, nunca antes.</p>
+    </div>
+  </details>
+</section>
+
+<section>
+  <h2>Destaques da revisão cruzada</h2>
+  <details>
+    <summary>O que os 5 revisores disseram <span class="tag">· mapeamento A–E revelado</span></summary>
+    <div class="body">
+      <p class="note">Mapeamento do anonimato: A = Outsider · B = Executor · C = Contrário · D = Expansionista · E = Primeiros Princípios.</p>
+      <p><strong>Revisor 1.</strong> B é a mais forte, e E explica melhor a questão dos créditos. O ponto cego está em D. Todos esqueceram que regra em prompt não é trava (é preciso limite de gasto na plataforma), a propriedade das contas, o contrato de tratamento de dados (RGPD art. 28) e a transparência dos criativos feitos com IA.</p>
+      <p><strong>Revisor 2.</strong> B é a mais forte. O ponto cego está em D, porque a atribuição anúncio → WhatsApp → venda exige um CRM que esses clientes não têm. Todos esqueceram o RGPD do próprio Claude (assinatura pessoal vs. Team/API com DPA), o acesso como parceiro no Business Manager do cliente e preço, margem e contrato.</p>
+      <p><strong>Revisor 3.</strong> B é a mais forte, com a ressalva de que o Postiz em VPS exige app Meta próprio e a versão cloud resolve no começo. O ponto cego está em D: qualquer agência consegue o App Review, então isso não é barreira. Todos esqueceram a trava de gasto na plataforma, o contrato e que o gatilho deve ser medido em horas e margem por cliente, não em número de clientes.</p>
+      <p><strong>Revisor 4.</strong> B é a mais forte. O ponto cego está em D, que trata a burocracia como proteção quando ela pode travar o produto. Todos esqueceram quem é dono das contas e quem responde pelos erros. Com acesso de parceiro, o MCP que você já usa provavelmente alcança as contas sem App Review próprio.</p>
+      <p><strong>Revisor 5.</strong> B é a mais forte. O ponto cego está em D, que supõe sem dados que os SaaS atuais servem de canal de venda. Todos esqueceram o contrato, o registro de cada alteração feita pelo Claude e quantos clientes você aguenta sozinho.</p>
+    </div>
+  </details>
+</section>
+
+<footer>
+  Conselho de IAs (skill <code>llm-council</code>) · 10/10/2026, 22:35 UTC · Tema: agência de agentes de IA para clientes de Instagram, Meta Ads e Google Ads · 5 conselheiros, 5 revisões às cegas, 1 veredito do presidente. A transcrição completa está em <code>council-transcript-20261010-2235.md</code>.
+</footer>
+
+</div>
+</body>
+</html>
