@@ -14,5 +14,8 @@
         ]
       }
     ]
-  }
+  },
+  "enabledMcpjsonServers": [
+    "google-ads"
+  ]
 }

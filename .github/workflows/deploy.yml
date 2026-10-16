@@ -34,3 +34,4 @@ jobs:
             **/.git*/**
             **/.github/**
             **/.claude/**
+            **/.mcp.json
