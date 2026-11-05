@@ -32,6 +32,12 @@ Este repositório também tem as skills de marketing que já estavam aqui (`copy
 | `watch` | [bradautomates/claude-video](https://github.com/bradautomates/claude-video) @ 03ceb42 (MIT; `gemini.py` com ajuste local para a chave injetada pelo proxy) | `/watch <link ou arquivo> [pergunta]`: assiste vídeos de Instagram, YouTube, TikTok etc. |
 | `insta` | criada para nós | Mande o link de um reel/post do Instagram (ou `/insta <link>`): legenda, autor, métricas e conteúdo do vídeo, com leitura de marketing. |
 
+## Auditoria de sites
+
+| Skill | Origem | Como usar |
+|---|---|---|
+| `auditoria-site` | criada para nós | "Analisa o site <url>" ou `/auditoria-site <url>`: rastreia o site, mede a velocidade (Lighthouse), pesquisa palavras-chave e perguntas reais (autocompletar do Google), compara com quem aparece no Google e gera um relatório HTML para o cliente (espanhol ou português). Search Console, Google Ads e Perfil de Empresa entram quando o cliente libera acesso. |
+
 ## Produtividade
 
 | Skill | Origem | Como usar |
