@@ -38,6 +38,12 @@ Este repositório também tem as skills de marketing que já estavam aqui (`copy
 |---|---|---|
 | `auditoria-site` | criada para nós | "Analisa o site <url>" ou `/auditoria-site <url>`: rastreia o site, mede a velocidade (Lighthouse), pesquisa palavras-chave e perguntas reais (autocompletar do Google), compara com quem aparece no Google e gera um relatório HTML para o cliente (espanhol ou português). Search Console, Google Ads e Perfil de Empresa entram quando o cliente libera acesso. |
 
+## Vendas e prospecção
+
+| Skill | Origem | Como usar |
+|---|---|---|
+| `prospector` · `researcher` · `follow-up` · `scheduler` · `sales-coach` · `proposal-writer` · `contract-writer` · `pipeline` · `record-keeper` · `win-back` · `forecaster` | [Jakeschincariol/closer-skill](https://github.com/Jakeschincariol/closer-skill) @ 0b01076 (MIT) | Time de vendas no Claude: achar leads e a falha do site deles, pesquisar antes da call, coach ao vivo nas calls do Google Meet, proposta, contrato, funil e follow-ups. Nada é enviado sem o seu ok; e-mails e convites saem pelos conectores Gmail/Calendar. `prospector` e `contract-writer` têm regras para a Espanha (primeiro contato por telefone/LinkedIn por causa da LSSI; contrato revisado por gestoria). Os dados ficam em `closer/`, que está no `.gitignore` e nunca sobe para o site: use de preferência no Claude Code do Mac, onde a pasta fica salva entre sessões. |
+
 ## Produtividade
 
 | Skill | Origem | Como usar |
