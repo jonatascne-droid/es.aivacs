@@ -11,7 +11,7 @@ Datos clave:
 - Precios: no hay paquetes fijos. El diagnóstico es gratuito y después se envía una propuesta a medida con alcance, plazo e inversión, sin compromiso.
 - Proceso de trabajo: diagnóstico, planificación, ejecución y entrega con acompañamiento.
 - Tecnologías: Next.js, Lovable, Supabase, n8n, API oficial de WhatsApp Business, Meta Ads, Google Ads e inteligencia artificial (Claude y ChatGPT).
-- Contacto: WhatsApp +34 656 995 156 (https://wa.me/34656995156), correo aivacses@gmail.com, Instagram https://www.instagram.com/aivacses/
+- Contacto: WhatsApp +34 603 82 96 57 (https://wa.me/34603829657), correo aivacses@gmail.com, Instagram https://www.instagram.com/aivacses/
 
 ## Servicios
 
