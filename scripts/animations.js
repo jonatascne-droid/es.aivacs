@@ -36,6 +36,11 @@
 
 
   /* ---- Counter animation ---- */
+  /* Separador de milhar no formato espanhol: 2000 -> 2.000 */
+  function formatNumber(n) {
+    return String(n).replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+  }
+
   function animateCounter(el) {
     const target   = parseInt(el.getAttribute('data-target'), 10);
     const prefix   = el.getAttribute('data-prefix')  || '';
@@ -47,7 +52,7 @@
       const elapsed  = now - start;
       const progress = Math.min(elapsed / duration, 1);
       const eased    = 1 - Math.pow(1 - progress, 3); /* cubic ease-out */
-      el.textContent = prefix + Math.floor(eased * target) + suffix;
+      el.textContent = prefix + formatNumber(Math.floor(eased * target)) + suffix;
       if (progress < 1) requestAnimationFrame(tick);
     }
 
