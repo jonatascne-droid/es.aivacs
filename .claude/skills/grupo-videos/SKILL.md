@@ -38,7 +38,8 @@ description: Grupo "skills de vídeos" da AIVACS - reúne motion, edição, narr
 | HyperFrames CLI (`npx hyperframes`) | montar, conferir, renderizar, transcrever | baixa sozinho pelo npx |
 | ffmpeg, Playwright/Chromium | cortes, compressão, capas | o hook de início instala o ffmpeg; o Chromium já vem na nuvem |
 | Credencial "Gemini" do ambiente | narração (`tts_align.py`), imagens, `/watch` | configurar em Ambiente → Credenciais (site `generativelanguage.googleapis.com`, cabeçalho `x-goog-api-key`) |
-| Login ou chave da HeyGen | música do catálogo | `npx hyperframes auth login --device` (vale só na sessão) ou chave `HEYGEN_API_KEY` nas credenciais |
+| Login da HeyGen | música do catálogo (cota gratuita) | `npx hyperframes auth login --device` no começo da sessão; mande o link ao Jhony aprovar |
+| Fotos do Jhony | tela final, capas com foto | repositório privado `jonatascne-droid/Mi-auto-trading`, pasta `aivacs/fotos/` (`add_repo`, clonar, `AIVACS_FOTOS`) |
 | Conector Metricool | agendar Instagram e Facebook | reconectar em claude.ai → Configurações → Conectores |
 
 ## Regras da casa

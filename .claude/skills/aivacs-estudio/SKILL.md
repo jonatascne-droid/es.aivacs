@@ -31,7 +31,11 @@ Leia antes de começar:
 
 ## Fotos do Jhony
 
-As fotos recortadas não ficam no repositório (ele é público). Peça a pasta ao Jhony ou recorte das fotos que ele enviar com `scripts/fotos/` e aplique o contorno branco com `outline.py`. Os exemplos leem a pasta em `AIVACS_FOTOS`.
+Ficam no repositório **privado** `jonatascne-droid/Mi-auto-trading`, pasta `aivacs/fotos/` (este repositório é público). Lá estão o ensaio original, os recortes com contorno branco, duas folhas de índice e um README dizendo qual foto já foi usada onde.
+
+1. Adicione o repositório à sessão (ferramenta `add_repo`) e clone: `git clone --depth 1 https://github.com/jonatascne-droid/mi-auto-trading <pasta>`.
+2. `export AIVACS_FOTOS=<pasta>/aivacs/fotos/recortes` (os exemplos leem daí).
+3. Recorte novo: `scripts/fotos/` e contorno com `outline.py`; salve em `aivacs/fotos/recortes/` do repositório privado e atualize o README de lá.
 
 ## Como usar com outras skills
 

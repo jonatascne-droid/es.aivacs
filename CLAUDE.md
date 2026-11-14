@@ -16,7 +16,7 @@ Quando o Jhony pedir para usar um grupo ("use as skills de vídeos", "grupo ADS"
 | Site e SEO | `grupo-site` | aivacs.es e sites de clientes, SEO, buscas com IA, conversão |
 | Estratégia | `grupo-estrategia` | Plano de marketing, oferta, preço, funil, e-mail, prospecção, decisões |
 
-O kit próprio da agência (Reels, capas, carrosséis, fotos recortadas, identidade e lições) é a skill `aivacs-estudio`. A lista completa das skills e de onde cada uma veio está em `.claude/skills/README.md`.
+O kit próprio da agência (Reels, capas, carrosséis, fotos recortadas, identidade e lições) é a skill `aivacs-estudio`. As fotos do Jhony ficam no repositório privado `jonatascne-droid/Mi-auto-trading`, pasta `aivacs/fotos/` (este repositório é público). A lista completa das skills e de onde cada uma veio está em `.claude/skills/README.md`.
 
 ## Para funcionar igual em toda sessão
 

@@ -37,7 +37,7 @@ Um único pedido ao Gemini (limite de uns 10 por dia por modelo), cortado nas pa
 cd $W/videos/r1-tema && node <raiz-do-repo>/.claude/skills/media-use/audio/scripts/audio.mjs --request ./audio_request.json --hyperframes . --out ./bgm_meta.json --only bgm
 ```
 
-Usa o catálogo da HeyGen e precisa de login na HeyGen (`npx hyperframes auth login --device`) ou de uma chave em `HEYGEN_API_KEY`. Confira a duração: a faixa tem de cobrir o vídeo inteiro. Sem login, use música própria do Jhony ou gere uma (`media-use`).
+Usa o catálogo da HeyGen e precisa do login da HeyGen na sessão. Rode `npx hyperframes auth login --device`: ele mostra um link e um código; mande ao Jhony, ele aprova no celular em meio minuto e a música sai pela cota gratuita do HyperFrames. Não use chave de API da HeyGen: ela cobra do saldo pré-pago da API. Confira a duração: a faixa tem de cobrir o vídeo inteiro. Sem login, use música própria do Jhony ou gere uma localmente (`media-use`).
 
 ## 5. Montagem
 

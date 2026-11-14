@@ -39,4 +39,5 @@
 ## Sessões
 
 - Nada que precise sobreviver fica no scratchpad ou em `~/.claude`: vai para `.claude/skills/` no repositório e entra no `main` por PR.
-- Login da HeyGen (`npx hyperframes auth login`) vale só para a sessão; para música do catálogo em toda sessão, guarde uma chave de API da HeyGen nas credenciais do ambiente.
+- Login da HeyGen (`npx hyperframes auth login --device`) vale só para a sessão: faça no começo de cada trabalho com música (o Jhony aprova pelo link). Chave de API da HeyGen não compensa: as chamadas com chave saem do saldo pré-pago da API, enquanto o login usa a cota gratuita do HyperFrames.
+- Fotos do Jhony: repositório privado `Mi-auto-trading`, pasta `aivacs/fotos/`.

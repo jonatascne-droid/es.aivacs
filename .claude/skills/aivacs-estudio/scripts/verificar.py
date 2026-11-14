@@ -42,7 +42,10 @@ if grupo in ('videos', 'instagram', 'design', 'tudo'):
          'Gemini (narração, imagens, /watch)', 'credencial "Gemini" do ambiente (site generativelanguage.googleapis.com, cabeçalho x-goog-api-key)')
     cred = os.path.expanduser('~/.hyperframes/credentials')
     line(os.path.exists(cred) or bool(os.environ.get('HEYGEN_API_KEY')),
-         'HeyGen (música do catálogo)', 'npx hyperframes auth login --device, ou chave HEYGEN_API_KEY nas credenciais do ambiente')
+         'HeyGen (música do catálogo)', 'npx hyperframes auth login --device e mande o link ao Jhony aprovar (cota gratuita)')
+    fotos = os.environ.get('AIVACS_FOTOS', '')
+    line(bool(fotos) and os.path.isdir(fotos), 'fotos do Jhony (AIVACS_FOTOS)',
+         'add_repo jonatascne-droid/Mi-auto-trading, clone e export AIVACS_FOTOS=<clone>/aivacs/fotos/recortes')
     line(py('rembg'), 'rembg (recorte de fotos)', 'pip install "rembg[cpu]" scipy (só quando for recortar)')
 if grupo in ('videos', 'instagram', 'tudo'):
     line(shutil.which('yt-dlp') is not None, 'yt-dlp (baixar Reels para o /watch e /insta)', 'o hook de início instala; senão: pip install -U yt-dlp')

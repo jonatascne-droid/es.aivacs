@@ -22,7 +22,7 @@ description: Grupo "skills de Instagram e Facebook" da AIVACS - conteúdo orgân
 | Legenda | `legenda` | `copywriting`, `marketing-psychology` |
 | Responder comentários e montar DMs | `comentarios` | |
 | Calendário, pilares, ideias da semana | `content-strategy`, `social` | `marketing-ideas`, `marketing:content-creation` |
-| Fotos do Jhony recortadas com contorno branco | `aivacs-estudio/scripts/fotos/` | |
+| Fotos do Jhony recortadas com contorno branco | repositório privado `Mi-auto-trading`, pasta `aivacs/fotos/` | `aivacs-estudio/scripts/fotos/` para recortes novos |
 | Influenciadores e parcerias | `influencer-marketing`, `co-marketing` | |
 | Comunidade e engajamento | `community-marketing` | |
 | Números do perfil (alcance, melhores horários) | conector Metricool (`getAnalyticsDataByMetrics`, `getBestTimeToPostByNetwork`) | `marketing:performance-report` |
