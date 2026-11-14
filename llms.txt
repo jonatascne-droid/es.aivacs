@@ -5,13 +5,13 @@
 Datos clave:
 
 - Ubicación: Madrid (España).
-- Trayectoria: desde 2018 ayudando a empresas a crecer en el digital (reconocimiento de marca, conversión de contactos en clientes, ventas y facturación), con cientos de proyectos realizados para decenas de clientes.
+- Trayectoria: desde 2018 ayudando a empresas a crecer en el digital (reconocimiento de marca, conversión de contactos en clientes, ventas y facturación), con más de 2.000 proyectos realizados para más de 50 clientes.
 - Zona de servicio: toda España. El diagnóstico, las revisiones y la entrega se hacen a distancia, por WhatsApp, correo electrónico o videollamada.
 - Idiomas de atención: español y portugués.
 - Precios: no hay paquetes fijos. El diagnóstico es gratuito y después se envía una propuesta a medida con alcance, plazo e inversión, sin compromiso.
 - Proceso de trabajo: diagnóstico, planificación, ejecución y entrega con acompañamiento.
 - Tecnologías: Next.js, Lovable, Supabase, n8n, API oficial de WhatsApp Business, Meta Ads, Google Ads e inteligencia artificial (Claude y ChatGPT).
-- Contacto: WhatsApp +34 656 995 156 (https://wa.me/34656995156), correo aivacses@gmail.com, Instagram https://www.instagram.com/aivacses/
+- Contacto: WhatsApp +34 603 82 96 57 (https://wa.me/34603829657), correo aivacses@gmail.com, Instagram https://www.instagram.com/aivacses/
 
 ## Servicios
 
