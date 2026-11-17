@@ -1,0 +1,64 @@
+{
+  "titulo": "Chatbot de WhatsApp: quién responde a las 23:00",
+  "marca": "aivacs",
+  "estilo": "impacto",
+  "idioma": "es",
+  "slides": [
+    {
+      "tipo": "capa",
+      "etiqueta": "WhatsApp para empresas",
+      "titulo": "Un cliente pide presupuesto a las **23:00**. ¿Quién le responde?",
+      "apoio": "Si nadie contesta, mañana ya habrá preguntado a otro."
+    },
+    {
+      "tipo": "texto",
+      "etiqueta": "01 · El problema",
+      "titulo": "Sin respuesta, el presupuesto se enfría",
+      "texto": "Por la noche o en fin de semana, quien espera tiene tiempo de preguntar a tu competencia."
+    },
+    {
+      "tipo": "numero",
+      "etiqueta": "02 · La solución",
+      "numero": "24 h",
+      "titulo": "Un chatbot responde al instante, **incluso de madrugada**",
+      "texto": "Contesta lo de siempre (horarios, precios, zonas) y pide los datos que necesitas."
+    },
+    {
+      "tipo": "texto",
+      "etiqueta": "03 · Más que responder",
+      "titulo": "Envía presupuestos y **agenda citas** por ti",
+      "texto": "Conectado a tu sistema, prepara el presupuesto, lo envía y reserva la cita en tu agenda."
+    },
+    {
+      "tipo": "texto",
+      "etiqueta": "04 · Tu equipo decide",
+      "titulo": "Lo complejo pasa a una persona de tu equipo",
+      "texto": "El bot filtra y adelanta. Si la consulta lo necesita, avisa a quien toca con todo el historial."
+    },
+    {
+      "tipo": "texto",
+      "etiqueta": "05 · Sin sustos",
+      "titulo": "Funciona con la **API oficial** de WhatsApp Business",
+      "texto": "Nada de apps piratas ni números bloqueados. Lo conectamos con tus herramientas usando n8n."
+    },
+    {
+      "tipo": "salvar",
+      "titulo": "Lo que hace un chatbot mientras duermes",
+      "itens": [
+        "Responde al instante, 24 horas",
+        "Pide los datos del cliente",
+        "Envía presupuestos",
+        "Agenda citas",
+        "Pasa lo complejo a tu equipo"
+      ],
+      "rodape": "Guárdalo para revisar cómo atiendes hoy a tus clientes."
+    },
+    {
+      "tipo": "cta",
+      "etiqueta": "Pruébalo tú mismo",
+      "titulo": "Comenta **CHATBOT** y te envío la demo por DM",
+      "palavra": "CHATBOT",
+      "texto": "Demo en vivo y sin registro: escribe como si fueras tu cliente y mira cómo responde."
+    }
+  ]
+}

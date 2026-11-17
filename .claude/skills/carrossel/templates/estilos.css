@@ -1,0 +1,117 @@
+/* Carrossel v2: slides de 1080x1350 (4:5). As cores e fontes vêm da marca
+   (variáveis em :root, escritas pelo montar.py); aqui só a forma.
+   Estilos: impacto (escuro), editorial (claro), tweet (texto puro). */
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { background: #1a1d21; display: flex; flex-direction: column; align-items: center; gap: 48px; padding: 48px 0; }
+
+.slide {
+  width: 1080px; height: 1350px; position: relative; overflow: hidden;
+  background: var(--fundo); color: var(--texto);
+  font-family: var(--f-texto); font-size: 44px; line-height: 1.4;
+  display: flex; flex-direction: column; justify-content: center;
+  padding: 210px 96px 200px;
+}
+.slide.alt { background: var(--superficie); }
+mark { background: none; color: var(--destaque); }
+h1, h2 { font-family: var(--f-titulo); letter-spacing: -0.025em; text-wrap: balance; font-weight: 800; }
+.conteudo { display: flex; flex-direction: column; gap: 40px; position: relative; z-index: 2; }
+
+/* Topo: marca, nome, @ e contador. */
+.topo { position: absolute; top: 72px; left: 96px; right: 96px; display: flex; align-items: center; gap: 24px; z-index: 3; }
+.marca { width: 80px; height: 80px; border-radius: 24px; border: 2px solid var(--linha); background: var(--fundo);
+  color: var(--destaque); display: grid; place-items: center; overflow: hidden; flex-shrink: 0; }
+.marca svg { width: 44px; height: 44px; }
+.marca img { width: 100%; height: 100%; object-fit: cover; }
+.iniciais { font-family: var(--f-titulo); font-weight: 800; font-size: 32px; }
+.quem { display: flex; flex-direction: column; line-height: 1.15; gap: 4px; }
+.quem b { font-family: var(--f-titulo); font-size: 32px; font-weight: 800; letter-spacing: 0.08em; }
+.quem span { font-size: 28px; color: var(--apoio); }
+.contador { margin-left: auto; font-family: var(--f-dados); font-size: 28px; color: var(--apoio); letter-spacing: 0.04em; }
+
+/* Base: barra de progresso e seta de arrastar. */
+.base { position: absolute; left: 96px; right: 96px; bottom: 80px; display: flex; align-items: center; gap: 32px; z-index: 3; }
+.progresso { flex: 1; height: 8px; border-radius: 99px; background: var(--linha); overflow: hidden; }
+.progresso i { display: block; height: 100%; border-radius: 99px; background: var(--destaque); }
+.seta { width: 76px; height: 76px; border-radius: 50%; border: 2px solid var(--linha); color: var(--texto);
+  display: grid; place-items: center; flex-shrink: 0; }
+.seta svg { width: 36px; height: 36px; }
+
+/* Peças de texto. */
+.etiqueta { font-family: var(--f-dados); font-size: 30px; line-height: 1.2; letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--destaque); display: flex; align-items: center; gap: 14px; }
+.etiqueta svg { width: 34px; height: 34px; }
+h2 { font-size: 90px; line-height: 1.05; }
+.texto { color: var(--apoio); font-size: 48px; line-height: 1.4; max-width: 880px; }
+
+/* Capa: manchete no pé, a marca grande e vazada ao fundo. */
+.tipo-capa { justify-content: flex-end; padding-bottom: 230px;
+  background-image:
+    radial-gradient(900px 700px at 85% 10%, color-mix(in srgb, var(--destaque) 16%, transparent), transparent 70%),
+    linear-gradient(color-mix(in srgb, var(--destaque) 6%, transparent) 2px, transparent 2px),
+    linear-gradient(90deg, color-mix(in srgb, var(--destaque) 6%, transparent) 2px, transparent 2px);
+  background-size: auto, 90px 90px, 90px 90px; }
+.tipo-capa h1 { font-size: 100px; line-height: 1.02; }
+.tipo-capa .apoio { font-size: 46px; line-height: 1.35; color: var(--apoio); max-width: 860px; }
+.fundo-marca { position: absolute; top: 330px; right: -430px; width: 1180px; height: 1180px; color: var(--destaque); opacity: 0.1; z-index: 1; }
+.fundo-marca svg, .fundo-marca img { width: 100%; height: 100%; }
+.fundo-marca .iniciais { display: none; }
+.pilula { align-self: flex-start; display: inline-flex; align-items: center; gap: 14px; padding: 18px 30px; border-radius: 99px;
+  border: 2px solid var(--linha); font-family: var(--f-dados); font-size: 28px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--texto); }
+.pilula svg { width: 32px; height: 32px; color: var(--destaque); }
+
+/* Número grande. */
+.numero { font-family: var(--f-titulo); font-weight: 800; font-size: 230px; line-height: 0.9; letter-spacing: -0.04em; color: var(--destaque); }
+
+/* Lista e slide de salvar. */
+.itens { list-style: none; display: flex; flex-direction: column; }
+.itens li { display: flex; align-items: center; gap: 28px; padding: 26px 0; border-bottom: 2px solid var(--linha); font-size: 44px; line-height: 1.25; }
+.itens li:last-child { border-bottom: 0; }
+.check { width: 60px; height: 60px; border-radius: 50%; background: var(--destaque); color: var(--sobre-destaque);
+  display: grid; place-items: center; flex-shrink: 0; }
+.check svg { width: 34px; height: 34px; }
+.rodape { color: var(--apoio); font-size: 40px; line-height: 1.35; }
+.tipo-lista h2, .tipo-salvar h2 { font-size: 68px; }
+.tipo-lista .conteudo, .tipo-salvar .conteudo { gap: 32px; }
+.itens li { padding: 20px 0; font-size: 42px; }
+
+/* Frase. */
+blockquote { font-family: var(--f-titulo); font-weight: 700; font-size: 84px; line-height: 1.1; letter-spacing: -0.02em; text-wrap: balance; }
+.autor { color: var(--apoio); font-family: var(--f-dados); font-size: 30px; letter-spacing: 0.08em; text-transform: uppercase; }
+
+/* CTA: o slide inteiro na cor de destaque, uma ação só. */
+.tipo-cta { background: var(--destaque); color: var(--sobre-destaque); }
+.tipo-cta mark { color: inherit; }
+.tipo-cta h2 { font-size: 92px; line-height: 1.04; }
+.tipo-cta .texto { color: color-mix(in srgb, var(--sobre-destaque) 78%, transparent); }
+.tipo-cta .etiqueta { color: var(--sobre-destaque); }
+.tipo-cta .marca { background: var(--sobre-destaque); border-color: transparent; color: var(--destaque); }
+.tipo-cta .quem span, .tipo-cta .contador { color: color-mix(in srgb, var(--sobre-destaque) 70%, transparent); }
+.tipo-cta .progresso { background: color-mix(in srgb, var(--sobre-destaque) 20%, transparent); }
+.tipo-cta .progresso i { background: var(--sobre-destaque); }
+.palavra { align-self: flex-start; font-family: var(--f-dados); font-weight: 700; font-size: 84px; letter-spacing: 0.06em;
+  background: var(--sobre-destaque); color: var(--destaque); padding: 22px 48px; border-radius: 28px; }
+
+/* Editorial: fundo claro; o destaque vira um bloco de cor atrás da palavra. */
+[data-estilo="editorial"] mark { background: var(--destaque); color: var(--sobre-destaque); padding: 0 0.12em; border-radius: 0.1em;
+  -webkit-box-decoration-break: clone; box-decoration-break: clone; }
+[data-estilo="editorial"] .etiqueta { color: var(--texto); }
+[data-estilo="editorial"] .etiqueta::before { content: ""; width: 18px; height: 18px; border-radius: 50%; background: var(--destaque); }
+[data-estilo="editorial"] .etiqueta:has(svg)::before { display: none; }
+[data-estilo="editorial"] .numero { color: var(--texto); }
+[data-estilo="editorial"] .fundo-marca { color: var(--texto); opacity: 0.06; }
+[data-estilo="editorial"] .marca { color: var(--texto); }
+[data-estilo="editorial"] .tipo-cta mark { background: none; padding: 0; }
+[data-estilo="editorial"] .tipo-cta .marca { color: var(--destaque); }
+[data-estilo="editorial"] h1, [data-estilo="editorial"] h2 { line-height: 1.14; }
+
+/* Tweet: só texto, como um post; o perfil desce para junto do texto. */
+[data-estilo="tweet"] :is(.tipo-capa, .tipo-texto, .tipo-numero, .tipo-frase) { padding-top: 160px; }
+[data-estilo="tweet"] :is(.tipo-capa, .tipo-texto, .tipo-numero, .tipo-frase) .topo { position: static; margin-bottom: 56px; }
+[data-estilo="tweet"] :is(.tipo-capa, .tipo-texto, .tipo-numero, .tipo-frase) .contador { display: none; }
+[data-estilo="tweet"] .tipo-capa { background-image: none; justify-content: center; padding-bottom: 200px; }
+[data-estilo="tweet"] .fundo-marca { display: none; }
+[data-estilo="tweet"] .tipo-capa h1 { font-family: var(--f-texto); font-weight: 700; font-size: 84px; line-height: 1.15; letter-spacing: -0.015em; }
+[data-estilo="tweet"] .slide:not(.tipo-cta) h2 { font-family: var(--f-texto); font-weight: 700; font-size: 64px; line-height: 1.18; letter-spacing: -0.01em; }
+[data-estilo="tweet"] .slide:not(.tipo-cta) .texto { color: var(--texto); font-size: 52px; line-height: 1.38; }
+[data-estilo="tweet"] .slide.alt { background: var(--fundo); }

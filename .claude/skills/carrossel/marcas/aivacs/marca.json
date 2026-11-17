@@ -1,0 +1,32 @@
+{
+  "nome": "AIVACS",
+  "perfil": "@aivacses",
+  "subtitulo": "Soluciones digitales · Madrid",
+  "idioma": "es",
+  "site": "https://es.aivacs.online",
+  "logo": "logo.svg",
+  "fontes": {
+    "titulo": { "familia": "Plus Jakarta Sans", "arquivo": "fontes/plus-jakarta-sans.woff2" },
+    "texto": { "familia": "DM Sans", "arquivo": "fontes/dm-sans.woff2" },
+    "dados": { "familia": "JetBrains Mono", "arquivo": "fontes/jetbrains-mono.woff2" }
+  },
+  "escuro": {
+    "fundo": "#080c10",
+    "superficie": "#0e141b",
+    "linha": "#1b2733",
+    "texto": "#f0f4f8",
+    "apoio": "#b1bcc8",
+    "destaque": "#4bbfef",
+    "sobre_destaque": "#04131b"
+  },
+  "claro": {
+    "fundo": "#f4f7fa",
+    "superficie": "#ffffff",
+    "linha": "#d9e1e8",
+    "texto": "#0a1016",
+    "apoio": "#3d4956",
+    "destaque": "#4bbfef",
+    "sobre_destaque": "#04131b"
+  },
+  "notas": "Cian es el único color de señal. Texto sobre cian siempre #04131b, nunca blanco. Sin degradados en el texto ni halos de brillo."
+}
