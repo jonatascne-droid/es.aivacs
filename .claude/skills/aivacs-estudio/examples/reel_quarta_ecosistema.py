@@ -249,7 +249,8 @@ post = f"""<div class="card" id="s5-post" style="left:170px;top:250px;width:740p
 <div id="s5-share" style="position:absolute;left:250px;top:1090px;display:flex;align-items:center;gap:14px;padding:16px 26px;border-radius:999px;background:#0F1821;border:1.5px solid rgba(110,210,250,.5);font:700 28px 'Jakarta';z-index:5">
   <i class="ic" style="width:32px;height:32px;color:#4BBFEF">{icon('arrow-right')}</i> Compartido con 3 amigos</div>"""
 html = inv + post
-js = f"""tl.fromTo("#s5-inv", {{ opacity: 0, y: 120, rotation: -3 }}, {{ opacity: 1, y: 0, rotation: 0, duration: 0.55, ease: "power3.out" }}, 0.05);
+js = f"""tl.set("#s5-inv", {{ opacity: 1, y: 420, rotation: -3 }}, 0);
+tl.to("#s5-inv", {{ y: 0, rotation: 0, duration: 0.55, ease: "expo.out" }}, 0);
 tl.fromTo("#s5-sent", {{ opacity: 0, x: -30 }}, {{ opacity: 1, x: 0, duration: 0.35, ease: "power3.out" }}, {t_fac + 0.6});
 tl.to("#s5-inv", {{ x: 900, y: -500, rotation: 18, opacity: 0, duration: 0.55, ease: "power2.in" }}, {t_cont - 0.55});
 tl.fromTo("#s5-post", {{ opacity: 0, scale: 0.86, y: 60 }}, {{ opacity: 1, scale: 1, y: 0, duration: 0.55, ease: "power3.out" }}, {t_cont - 0.15});
@@ -280,7 +281,7 @@ html = f"""<div id="s6-ring" style="position:absolute;inset:0">
 <svg style="position:absolute;left:0;top:0" width="1080" height="1920" viewBox="0 0 1080 1920">{segs}</svg>{nodes}</div>"""
 t_out = t_aiv - 0.75
 # the six pieces arrive one by one (no dead hold before "ecosistema"), the ring closes on the word, then the pieces flash in a chase
-js = ''.join(f'tl.fromTo("#s6-n{i}", {{ opacity: 0, scale: 0.55 }}, {{ opacity: 1, scale: 1, duration: 0.4, ease: "{E['popOver']}" }}, {0.02 + i * 0.2:.3f});\n'
+js = ''.join(f'tl.set("#s6-n{i}", {{ opacity: 1, scale: 0.4 }}, {i * 0.2:.3f});\ntl.to("#s6-n{i}", {{ scale: 1, duration: 0.4, ease: "{E['popOver']}" }}, {i * 0.2:.3f});\n'
              f'tl.fromTo("#s6-l{i}", {{ opacity: 0, y: 16 }}, {{ opacity: 1, y: 0, duration: 0.3, ease: "{E['softLand']}" }}, {0.14 + i * 0.2:.3f});\n' for i in range(6))
 js += ''.join(f'tl.to("#s6-e{i}", {{ strokeDashoffset: 0, duration: 0.22, ease: "power1.inOut" }}, {t_eco - 0.4 + i * 0.16:.3f});\n' for i in range(6))
 js += ''.join(f'tl.to("#s6-n{i}", {{ boxShadow: "0 0 40px rgba(75,191,239,.85), 0 20px 40px rgba(0,0,0,.5)", scale: 1.1, duration: 0.16, ease: "power2.out", yoyo: true, repeat: 1 }}, {t_eco + 0.6 + i * 0.11:.3f});\n' for i in range(6))
