@@ -18,6 +18,11 @@ def line(ok, what, fix=''):
     print(f"{'OK   ' if ok else 'FALTA'} {what}" + ('' if ok or not fix else f'  ->  {fix}'))
 
 
+def opt(ok, what, fix=''):
+    """optional tool: reported, but does not block the group"""
+    print(f"{'OK   ' if ok else 'OPC  '} {what}" + ('' if ok or not fix else f'  ->  {fix}'))
+
+
 def http(url, headers=None):
     try:
         req = urllib.request.Request(url, headers=headers or {})
@@ -47,6 +52,12 @@ if grupo in ('videos', 'instagram', 'design', 'tudo'):
     line(bool(fotos) and os.path.isdir(fotos), 'fotos do Jhony (AIVACS_FOTOS)',
          'add_repo jonatascne-droid/Mi-auto-trading, clone e export AIVACS_FOTOS=<clone>/aivacs/fotos/recortes')
     line(py('rembg'), 'rembg (recorte de fotos)', 'pip install "rembg[cpu]" scipy (só quando for recortar)')
+if grupo in ('videos', 'tudo'):
+    kit = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', '..', '..', 'kit')
+    opt(os.path.exists(os.path.join(kit, 'node_modules', 'three')) and os.path.exists(os.path.join(kit, 'vendor', 'gsap.min.js')),
+        'kit das skills de animação (/graph, /map-route...)', 'bash .claude/kit/setup.sh')
+    opt(shutil.which('earshot') is not None, 'earshot (ouvir e conferir o áudio)',
+        'veja a linha de instalação em .claude/skills/earshot/SKILL.md')
 if grupo in ('videos', 'instagram', 'tudo'):
     line(shutil.which('yt-dlp') is not None, 'yt-dlp (baixar Reels para o /watch e /insta)', 'o hook de início instala; senão: pip install -U yt-dlp')
 if grupo in ('ads', 'tudo'):

@@ -14,6 +14,9 @@ description: Grupo "skills de estratégia" da AIVACS - marketing e vendas - plan
 | Posicionamento e mensagem | `product-marketing` | `marketing-psychology`, `brand-voice:guideline-generation` |
 | Oferta irresistível, bônus, garantia | `offers` | `pricing` |
 | Pesquisa de clientes e concorrentes | `customer-research`, `competitor-profiling` | `competitors`, `marketing:competitive-brief` |
+| O que os concorrentes anunciam (ofertas validadas) | `grupo-ads`, roteiro "Espiar concorrentes" | conector Meta Ads (`ads_library_search`) |
+| O que os concorrentes postam e o que bomba no nicho | `radar-de-nicho` | `insta`, `perfil` |
+| Concorrentes no mapa do Google | `seo-local` | |
 | Lançamento | `launch` | `public-relations`, `events` |
 | E-mail e sequências | `emails` | `marketing:email-sequence`, `sms` |
 | Prospecção e cold e-mail | `prospecting`, `cold-email` | `sales-enablement` |
