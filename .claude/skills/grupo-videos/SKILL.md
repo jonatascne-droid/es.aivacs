@@ -27,7 +27,12 @@ description: Grupo "skills de vídeos" da AIVACS - reúne motion, edição, narr
 | Música, efeitos, voz, imagens, recorte, correção de cor | `media-use` | `aivacs-estudio/scripts/fotos/`, `gem_imagem.py` |
 | Capa de Reel | `aivacs-estudio` (`examples/capas_reels.py`) | |
 | Assistir a um vídeo de referência (Instagram, YouTube, TikTok) | `watch`, `insta` | |
-| Estratégia de vídeo, roteiro, gancho | `video`, `social` | `marketing-psychology`, `copywriting` |
+| Animação curta para apoiar um Reel: gráfico de número, rota no mapa, peça desmontada, linhas minimalistas | `graph`, `map-route`, `breakdown`, `minimalistic-graphics`, `dan-koe` | renderizam em segundos a 2 min; textos em espanhol por padrão |
+| Explicativo animado sem gravação ("e se…?", bonecos de palito, 3D cartoon, espaço, voxel, low-poly) | `zach-d-films`, `stick-figure`, `kurzgesagt`, `minecraft`, `low-poly` | voz em espanhol: narração do `aivacs-estudio` + `.claude/kit/palavras_es.py` |
+| Efeitos sonoros | `sfx-kit` (320 efeitos CC0, com ponto de sincronia) | `sfx-kit/scripts/openverse.py` para sons reais; `earshot` para escolher e conferir |
+| Conferir o áudio do vídeo antes de entregar (sincronia, volume, mixagem) | `earshot` (`earshot critique video.mp4`) | |
+| Ideias do que postar a partir do que bomba no nicho | `radar-de-nicho` | `watch`, `insta` |
+| Roteiro, gancho e voz | `roteiro` | `video`, `social`, `marketing-psychology` |
 | Legenda do post | `legenda` | |
 | Reel com Remotion | `reel` | só se pedirem: Remotion exige licença paga para empresas com mais de 3 pessoas |
 
@@ -37,6 +42,8 @@ description: Grupo "skills de vídeos" da AIVACS - reúne motion, edição, narr
 |---|---|---|
 | HyperFrames CLI (`npx hyperframes`) | montar, conferir, renderizar, transcrever | baixa sozinho pelo npx |
 | ffmpeg, Playwright/Chromium | cortes, compressão, capas | o hook de início instala o ffmpeg; o Chromium já vem na nuvem |
+| Kit das skills de animação (`.claude/kit/`) | three.js, GSAP e o Playwright da sessão para `graph`, `map-route` e as demais | `bash .claude/kit/setup.sh` (um minuto) |
+| earshot | ouvir e conferir áudio | instalação de 1 linha em `earshot/SKILL.md` (~1 min + 1,1 GB de modelos) |
 | Credencial "Gemini" do ambiente | narração (`tts_align.py`), imagens, `/watch` | configurar em Ambiente → Credenciais (site `generativelanguage.googleapis.com`, cabeçalho `x-goog-api-key`) |
 | Login da HeyGen | música do catálogo (cota gratuita) | `npx hyperframes auth login --device` no começo da sessão; mande o link ao Jhony aprovar |
 | Fotos do Jhony | tela final, capas com foto | repositório privado `jonatascne-droid/Mi-auto-trading`, pasta `aivacs/fotos/` (`add_repo`, clonar, `AIVACS_FOTOS`) |

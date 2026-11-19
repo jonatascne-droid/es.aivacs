@@ -18,10 +18,13 @@ description: Grupo "skills de site" da AIVACS - o site aivacs.es e sites de clie
 | Texto do site | `copywriting`, `copy-editing` | `product-marketing` |
 | Conversão (formulário, página de vendas) | `cro`, `signup`, `popups`, `onboarding` | `ab-testing` |
 | Medição (GA4, eventos, UTM) | `analytics` | `attribution` |
-| Diretórios e citações locais | `directory-submissions` | |
+| Negócio local: aparecer no mapa e no resumo de IA do Google, ficha do Google, avaliações, páginas por cidade | `seo-local` | `schema`, `ai-seo` |
+| Copiar ou migrar o site antigo de um cliente | `clone-website` | Playwright (já instalado), `scripts/capturar.js` e `comparar.py` da skill |
+| Diretórios e citações locais | `seo-local` (diretórios espanhóis) | `directory-submissions` (diretórios de SaaS e IA) |
 | Ferramenta gratuita como isca | `free-tools` | |
 | Site ou app para cliente sem código | conector Lovable | conector Supabase (banco e login) |
 | Teste do site no navegador | `run` | Playwright (já instalado) |
+| Código de cliente bagunçado (exportado do Lovable, herdado de outro dev) | `untangle-codebase` (só quando chamada) | `prune-tests` |
 
 ## Regras da casa
 
