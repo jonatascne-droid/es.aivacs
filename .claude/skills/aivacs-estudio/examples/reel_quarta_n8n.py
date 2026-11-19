@@ -92,7 +92,7 @@ tl.to("#f-n4", {{ opacity: 1, duration: 0.2 }}, {L(t_avisa) - 0.1:.3f});
 {light('n4', t_avisa + 0.15)}
 tl.to("#f-dot", {{ opacity: 0, duration: 0.2 }}, {L(t_avisa) + 0.2:.3f});
 {''.join(f'tl.to("#f-{n}", {{ borderColor: "rgba(110,210,250,.75)", duration: 0.16, ease: "power2.out", yoyo: true, repeat: 1 }}, {L(t_flujo) + 0.9 + i * 0.14:.3f});' + chr(10) for i, n in enumerate(['n1', 'n2', 'n3', 'n4']))}{''.join(f'tl.to("#f-dot", {{ scale: 1.35, duration: 0.35, ease: "power2.inOut", yoyo: true, repeat: 1 }}, {t:.3f});' + chr(10) for t in [L(t_entra) + 0.5 + 0.9 * j for j in range(40)] if t < L(t_crea) - 0.45)}
-tl.to(["#f-n0", "#f-n1", "#f-n2", "#f-n3", "#f-n4", "#f-head"], {{ opacity: 0, duration: 0.3, ease: "power2.in" }}, {L(en) - 0.35:.3f});"""
+tl.to(["#f-n0", "#f-n1", "#f-n2", "#f-n3", "#f-n4", "#f-head"], {{ y: "-=1300", duration: 0.32, ease: "power3.in" }}, {L(en) - 0.3:.3f});"""
 K.add_scene('flow', st, en, css, html, js, stage=(1.0, 623))
 for t in (t_obra, t_fact, t_agenda + 0.2, t_avisa + 0.15):
     K.fx('pop', t)
@@ -109,7 +109,7 @@ stats = f"""<div id="e-stats" style="position:absolute;inset:0">{tiles}
 <div id="e-s3" class="st" style="top:760px"><b>0</b> datos copiados a mano</div></div>"""
 stats_js = f"""tl.set("#e-stats", {{ scale: 1.12, y: 340, transformOrigin: "540px 540px" }}, 0);
 tl.to("#e-stats", {{ scale: 1.16, duration: {round(t_mark - st, 3)}, ease: "none" }}, 0);
-tl.fromTo("#e-s1", {{ opacity: 0, y: 20 }}, {{ opacity: 1, y: 0, duration: 0.35, ease: "power3.out" }}, {round(max(0.05, t_msg - st - 0.1), 3)});
+tl.fromTo("#e-s1", {{ opacity: 0, y: 20 }}, {{ opacity: 1, y: 0, duration: 0.3, ease: "power3.out" }}, 0);
 {''.join(f'tl.fromTo("#e-t{i}", {{ opacity: 0, scale: 0.6 }}, {{ opacity: 1, scale: 1, duration: 0.3, ease: "back.out(2)" }}, {round(t_cinco - st - 0.1 + i * 0.08, 3)});' + chr(10) for i in range(5))}
 tl.fromTo("#e-s2", {{ opacity: 0, y: 20 }}, {{ opacity: 1, y: 0, duration: 0.35, ease: "power3.out" }}, {round(t_cinco - st + 0.2, 3)});
 tl.fromTo("#e-s3", {{ opacity: 0, y: 20 }}, {{ opacity: 1, y: 0, duration: 0.35, ease: "power3.out" }}, {round(t_nadie - st, 3)});

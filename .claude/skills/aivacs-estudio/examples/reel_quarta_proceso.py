@@ -122,7 +122,7 @@ js += f'tl.fromTo("#r-f2", {{ opacity: 0, x: -30 }}, {{ opacity: 1, x: 0, durati
 for i in range(4):
     js += f'tl.to("#r-n{i}", {{ scale: 1.18, boxShadow: "0 0 30px rgba(75,191,239,.8)", duration: 0.18, ease: "power2.out", yoyo: true, repeat: 1 }}, {L(t_seg) + 0.6 + i * 0.16:.3f});\n'
 js += f'tl.to("#r-k4", {{ boxShadow: "0 0 70px rgba(75,191,239,.35), 0 40px 80px rgba(0,0,0,.55)", duration: 0.4, ease: "power2.inOut", yoyo: true, repeat: 1 }}, {L(t_seg) + 0.9:.3f});\n'
-js += f'tl.to(["#r-k4", "#r-n0", "#r-n1", "#r-n2", "#r-n3", "#r-l0", "#r-l1", "#r-l2", "#r-l3", "#r-prog"], {{ opacity: 0, duration: 0.3, ease: "power2.in" }}, {L(en) - 0.35});\n'
+js += f'tl.to(["#r-k4", "#r-n0", "#r-n1", "#r-n2", "#r-n3", "#r-l0", "#r-l1", "#r-l2", "#r-l3", "#r-prog"], {{ y: -1300, duration: 0.32, ease: "power3.in" }}, {L(en) - 0.3});\n'
 K.add_scene('route', st, en, css, html, js, stage=(1.0, 625))
 for t in (t_diag, t_prop, t_cons, t_entr):
     K.fx('whoosh', t - 0.3)
@@ -135,7 +135,7 @@ css, html, js = endcard(K, 'e', st, t_mark, JH, 240, 900, 600, 'Diagnóstico gra
 import re as _re
 js = '\n'.join(l for l in js.split('\n') if '"#e-jh"' not in l)
 sc = 760 / 600
-js += (f'\ntl.fromTo("#e-jh", {{ opacity: 0, x: -45, y: -265, scale: {sc:.4f}, transformOrigin: "0 0" }}, {{ opacity: 1, x: -45, y: -365, scale: {sc:.4f}, duration: 0.5, ease: "power3.out" }}, 0.1);\n'
+js += (f'\ntl.fromTo("#e-jh", {{ opacity: 0, x: -45, y: -265, scale: {sc:.4f}, transformOrigin: "0 0" }}, {{ opacity: 1, x: -45, y: -365, scale: {sc:.4f}, duration: 0.5, ease: "power3.out" }}, 0);\n'
        f'tl.to("#e-jh", {{ x: 0, y: 0, scale: 1, duration: 0.6, ease: "power3.inOut" }}, {round(t_mark - st - 0.55, 3)});\n')
 K.add_scene('e', st, en, css, html, js)
 

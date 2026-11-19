@@ -56,7 +56,8 @@ css = """.hl { padding: 0 6px; border-radius: 8px; background: rgba(75,191,239,0
 .ch { position: absolute; left: 210px; width: 760px; padding: 22px 28px; border-radius: 22px; background: #0E161E; border: 1.5px solid rgba(110,210,250,.4); display: flex; flex-direction: column; gap: 4px; opacity: 0; }
 .ch span { font-size: 22px; color: #9AA5B1; } .ch b { font: 800 38px "Jakarta"; color: #F0F4F8; }
 #n2-ai { opacity: 0; }"""
-js = f"""tl.fromTo("#n2-msg", {{ opacity: 0, scale: 0.85, y: 40 }}, {{ opacity: 1, scale: 1, y: 0, duration: 0.5, ease: "power3.out" }}, 0.05);
+js = f"""tl.set("#n2-msg", {{ opacity: 1, scale: 0.85, y: 120 }}, 0);
+tl.to("#n2-msg", {{ scale: 1, y: 0, duration: 0.5, ease: "expo.out" }}, 0);
 tl.fromTo("#n2-ai", {{ opacity: 0, x: -30 }}, {{ opacity: 1, x: 0, duration: 0.4, ease: "power3.out" }}, {L(t_ia) - 0.2});
 tl.to("#n2-h1", {{ backgroundColor: "rgba(75,191,239,.35)", duration: 0.25 }}, {L(t_ent) - 0.1});
 tl.to("#n2-h2", {{ backgroundColor: "rgba(75,191,239,.35)", duration: 0.25 }}, {L(t_ent) + 0.15});
@@ -81,7 +82,8 @@ html = f"""<div class="card" id="n3-chat" style="left:110px;top:220px;width:860p
   <div style="display:flex;justify-content:space-between;margin-top:12px;font-size:28px;color:#C9D4DD"><span>Zona</span><span class="mono">Madrid</span></div>
   <div id="n3-est" style="display:flex;justify-content:space-between;align-items:center;margin-top:24px;padding-top:20px;border-top:1.5px solid rgba(110,210,250,.18);font:800 40px 'Jakarta'"><span>Estimación</span><span style="color:#4BBFEF">€ 4.850</span></div></div>"""
 css = '#n3-q, #n3-a, #n3-db, #n3-est { opacity: 0; }'
-js = f"""tl.fromTo("#n3-chat", {{ opacity: 0, y: 40 }}, {{ opacity: 1, y: 0, duration: 0.45, ease: "power3.out" }}, 0.05);
+js = f"""tl.set("#n3-chat", {{ opacity: 1, y: 160 }}, 0);
+tl.to("#n3-chat", {{ y: 0, duration: 0.5, ease: "expo.out" }}, 0);
 tl.fromTo("#n3-q", {{ opacity: 0, y: 24, scale: 0.92 }}, {{ opacity: 1, y: 0, scale: 1, duration: 0.4, ease: "back.out(1.6)" }}, {max(0.2, L(t_preg) - 0.5)});
 tl.fromTo("#n3-a", {{ opacity: 0, y: 24, scale: 0.92 }}, {{ opacity: 1, y: 0, scale: 1, duration: 0.4, ease: "back.out(1.6)" }}, {L(t_preg) + 0.5});
 tl.to("#n3-line", {{ strokeDashoffset: 0, duration: 0.3, ease: "power2.out" }}, {L(t_cons) - 0.2});
@@ -122,10 +124,11 @@ html = lock('n5-ph', '23:16', notif('n5-nt', icon('si:whatsapp'), 'Tu asistente'
 html += f"""<div id="n5-team" style="position:absolute;left:0;right:0;top:1060px;display:flex;justify-content:center">
   <span style="display:inline-flex;align-items:center;gap:14px;padding:18px 30px;border-radius:999px;background:#0F1821;border:1.5px solid rgba(110,210,250,.35);font:800 30px 'Jakarta';color:#C9D4DD">
     <i class="ic" style="width:36px;height:36px;color:#BDEBFF">{icon('moon')}</i>Tu equipo: 0 conectados</span></div>"""
-js = f"""tl.fromTo("#n5-ph", {{ opacity: 0, scale: 0.9 }}, {{ opacity: 1, scale: 1, duration: 0.5, ease: "power3.out" }}, 0.05);
+js = f"""tl.set("#n5-ph", {{ opacity: 1, scale: 0.9, y: 160 }}, 0);
+tl.to("#n5-ph", {{ scale: 1, y: 0, duration: 0.5, ease: "expo.out" }}, 0);
 tl.fromTo("#n5-nt", {{ opacity: 0, y: -60 }}, {{ opacity: 1, y: 0, duration: 0.45, ease: "back.out(1.4)" }}, {L(t_ya) - 0.3});
 tl.fromTo("#n5-team", {{ opacity: 0, y: 30 }}, {{ opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }}, {L(t_sin) - 0.1});
-tl.to(["#n5-ph", "#n5-team"], {{ opacity: 0, duration: 0.3, ease: "power2.in" }}, {L(en) - 0.35});"""
+tl.to(["#n5-ph", "#n5-team"], {{ y: -1300, duration: 0.32, ease: "power3.in" }}, {L(en) - 0.3});"""
 K.add_scene('n5', st, en, '#n5-nt, #n5-team { opacity: 0; }', html, js, stage=(1.06, 690))
 K.fx('notify', t_ya - 0.25)
 
@@ -134,15 +137,19 @@ st, en = K.start('s6'), K.end('s6')
 t_bot = K.at('s6', 'bot'); t_mark = K.at('s6', 'aivacs'); t_demo = K.at('s6', 'demo')
 kw = f"""<div id="e-kw" style="position:absolute;left:0;right:0;top:330px;text-align:center">
   <div style="font:700 40px 'Jakarta';color:#C9D4DD;display:flex;justify-content:center;align-items:center;gap:14px"><i class="ic" style="width:46px;height:46px;color:#25D366">{icon('si:whatsapp')}</i>Escríbenos por WhatsApp</div>
-  <div id="e-key" style="display:inline-block;margin-top:18px;padding:18px 54px;border-radius:26px;background:#4BBFEF;color:#04121B;font:800 120px 'Jakarta';box-shadow:0 0 70px rgba(75,191,239,.6)">BOT</div>
+  <div id="e-key" style="position:relative;overflow:hidden;display:inline-block;margin-top:18px;padding:18px 54px;border-radius:26px;background:#4BBFEF;color:#04121B;font:800 120px 'Jakarta';box-shadow:0 0 70px rgba(75,191,239,.6)">BOT<span id="e-ksw" style="position:absolute;top:-20px;bottom:-20px;left:0;width:90px;background:linear-gradient(90deg,transparent,rgba(255,255,255,.6),transparent)"></span></div>
   <div style="font:700 34px 'Jakarta';color:#C9D4DD;margin-top:22px">y te enseño la demo</div></div>"""
 kw_js = f"""tl.fromTo("#e-kw", {{ opacity: 0, scale: 0.8 }}, {{ opacity: 1, scale: 1, duration: 0.45, ease: "back.out(1.8)" }}, {round(max(0.05, t_bot - st - 0.2), 3)});
 tl.to("#e-kw", {{ scale: 1.04, duration: {round(max(0.5, t_mark - t_bot - 1.0), 3)}, ease: "none" }}, {round(max(0.05, t_bot - st - 0.2) + 0.45, 3)});
+tl.set("#e-ksw", {{ x: -160, skewX: -18 }}, 0);
+tl.to("#e-ksw", {{ x: 420, duration: 0.7, ease: "power2.inOut" }}, {round(max(0.05, t_bot - st - 0.2) + 0.75, 3)});
+tl.set("#e-ksw", {{ x: -160 }}, {round(max(0.05, t_bot - st - 0.2) + 1.5, 3)});
+tl.to("#e-ksw", {{ x: 420, duration: 0.7, ease: "power2.inOut" }}, {round(max(0.05, t_bot - st - 0.2) + 1.5, 3)});
 tl.to("#e-key", {{ scale: 0.92, duration: 0.1, ease: "power2.in", yoyo: true, repeat: 1 }}, {round(t_demo - st - 0.05, 3)});
 tl.to("#e-key", {{ boxShadow: "0 0 110px rgba(75,191,239,.95)", duration: 0.3, ease: "power2.out", yoyo: true, repeat: 1 }}, {round(t_demo - st, 3)});
 tl.to("#e-kw", {{ opacity: 0, y: -40, duration: 0.35, ease: "power2.in" }}, {round(t_mark - st - 0.75, 3)});"""
 css, html, js = endcard(K, 'e', st, t_mark, JH, 250, 930, 580, 'Escríbenos «BOT» por WhatsApp', '+34 603 82 96 57', extra_html=kw, extra_js=kw_js,
-                        css_extra='#e-kw { opacity: 0; }', jh_at=st + 0.15)
+                        css_extra='#e-kw { opacity: 0; }', jh_at=st)
 K.add_scene('e', st, en, css, html, js)
 K.fx('pop', t_bot)
 

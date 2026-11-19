@@ -255,9 +255,10 @@ tl.to("#s5-inv", {{ x: 900, y: -500, rotation: 18, opacity: 0, duration: 0.55, e
 tl.fromTo("#s5-post", {{ opacity: 0, scale: 0.86, y: 60 }}, {{ opacity: 1, scale: 1, y: 0, duration: 0.55, ease: "power3.out" }}, {t_cont - 0.15});
 tl.fromTo("#s5-heart", {{ opacity: 0, scale: 0.3 }}, {{ opacity: 1, scale: 1.1, duration: 0.3, ease: "back.out(2.4)" }}, {t_vuel - 0.05});
 tl.to("#s5-heart", {{ opacity: 0, scale: 1.3, duration: 0.3, ease: "power2.in" }}, {t_vuel + 0.55});
-tl.fromTo("#s5-share", {{ opacity: 0, y: 30 }}, {{ opacity: 1, y: 0, duration: 0.4, ease: "back.out(1.6)" }}, {t_rec - 0.1});"""
+tl.fromTo("#s5-share", {{ opacity: 0, y: 30 }}, {{ opacity: 1, y: 0, duration: 0.4, ease: "back.out(1.6)" }}, {t_rec - 0.1});
+tl.to(["#s5-post", "#s5-share"], {{ y: "-=1150", duration: 0.36, ease: "power3.in" }}, {D - 0.38:.3f});"""
 K.add_scene(s, starts[4], starts[4] + D, V1CSS + '#s5-post, #s5-heart, #s5-share, #s5-sent { opacity: 0; }', html, js, stage=(1.15, 705))
-SFX += [('whoosh', starts[4] + t_cont - 0.55), ('pop', starts[4] + t_vuel)]
+SFX += [('whoosh', starts[4] + t_cont - 0.55), ('pop', starts[4] + t_vuel), ('whoosh', starts[4] + D - 0.4)]
 
 # ---------- 6 · the ecosystem ring, then the end card ----------
 s = 's6'; D = durs[5]
@@ -279,8 +280,8 @@ html = f"""<div id="s6-ring" style="position:absolute;inset:0">
 <svg style="position:absolute;left:0;top:0" width="1080" height="1920" viewBox="0 0 1080 1920">{segs}</svg>{nodes}</div>"""
 t_out = t_aiv - 0.75
 # the six pieces arrive one by one (no dead hold before "ecosistema"), the ring closes on the word, then the pieces flash in a chase
-js = ''.join(f'tl.fromTo("#s6-n{i}", {{ opacity: 0, scale: 0.55 }}, {{ opacity: 1, scale: 1, duration: 0.4, ease: "{E['popOver']}" }}, {0.1 + i * 0.2:.3f});\n'
-             f'tl.fromTo("#s6-l{i}", {{ opacity: 0, y: 16 }}, {{ opacity: 1, y: 0, duration: 0.3, ease: "{E['softLand']}" }}, {0.22 + i * 0.2:.3f});\n' for i in range(6))
+js = ''.join(f'tl.fromTo("#s6-n{i}", {{ opacity: 0, scale: 0.55 }}, {{ opacity: 1, scale: 1, duration: 0.4, ease: "{E['popOver']}" }}, {0.02 + i * 0.2:.3f});\n'
+             f'tl.fromTo("#s6-l{i}", {{ opacity: 0, y: 16 }}, {{ opacity: 1, y: 0, duration: 0.3, ease: "{E['softLand']}" }}, {0.14 + i * 0.2:.3f});\n' for i in range(6))
 js += ''.join(f'tl.to("#s6-e{i}", {{ strokeDashoffset: 0, duration: 0.22, ease: "power1.inOut" }}, {t_eco - 0.4 + i * 0.16:.3f});\n' for i in range(6))
 js += ''.join(f'tl.to("#s6-n{i}", {{ boxShadow: "0 0 40px rgba(75,191,239,.85), 0 20px 40px rgba(0,0,0,.5)", scale: 1.1, duration: 0.16, ease: "power2.out", yoyo: true, repeat: 1 }}, {t_eco + 0.6 + i * 0.11:.3f});\n' for i in range(6))
 js += f'tl.to("#s6-ring", {{ opacity: 0, scale: 0.4, duration: 0.45, ease: "{E['accelExit']}" }}, {t_out:.3f});\n'
