@@ -18,6 +18,16 @@
 - Avisos esperados: `composition_file_too_large` e `container_overflow` de elementos saindo da tela.
 - Ao atualizar as skills do HyperFrames, rode `npx hyperframes check` num projeto antigo antes de produzir.
 
+## Layout no Instagram (o erro dos Reels de quarta)
+
+- A primeira leva dos Reels de quarta seguiu a «zona segura» conservadora do Instagram (conteúdo entre 14% e 65% da altura, a mesma que o `hyperframes check` usa no aviso `outside_safe_zone`). Resultado: tudo amontoado no terço de cima e um buraco embaixo. No Instagram ficou ruim e o Jhony pediu para refazer.
+- Regra da casa: o conteúdo principal fica **centralizado na tela** (centro em y ≈ 880) e as legendas logo abaixo (topo em ≈ 1462, terminando antes de ≈ 1550). Os avisos `outside_safe_zone` para Reels nessas posições são esperados; não suba o conteúdo por causa deles.
+- Cada cena ocupa a tela: use `stage=(escala, centro_y)` em `vkit_explicativo.py` para escalar e centralizar; cartões estreitos podem crescer até ~1,2×, o celular fica em ~1,06×.
+- Cena que vai crescendo (cartões entrando aos poucos): comece o palco centrado no que já está na tela e deslize a «câmera» quando o resto chega, para o meio nunca ficar vazio.
+- Troca de cena entre celular e cartão: empurrão (um sai acelerando, o outro entra opaco freando), nunca os dois meio transparentes um sobre o outro.
+- Legenda nunca passa por cima da foto do Jhony: pare as legendas (`until`) antes da tela final.
+- Na tela final, a foto do Jhony com uns 580–620 px de largura preenche a parte de baixo; com 440 px sobra um vazio.
+
 ## Revisão
 
 - O motionmaxxing (github.com/Tejashmakwana/motionmaxxing) é a referência de ofício; os scripts dele não rodam aqui (bloqueados por serem código externo). `mogcheck.py` é a nossa implementação dos mesmos critérios.

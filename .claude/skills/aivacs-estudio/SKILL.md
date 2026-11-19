@@ -18,6 +18,7 @@ Leia antes de começar:
 |---|---|
 | `scripts/tts_align.py` | Narração: um pedido ao Gemini TTS com o roteiro inteiro, cortado em uma faixa por fala, com o tempo de cada palavra (`voice_meta.json`). |
 | `scripts/vkit.py` | Base dos Reels: cenas, legendas palavra por palavra, fundo vivo, efeitos sonoros, música e tela final (logo, foto, WhatsApp). |
+| `scripts/vkit_explicativo.py` | Base dos Reels explicativos com celular e cartões (os de quarta): cada cena num «palco» escalado e centralizado na tela (`stage=(escala, centro_y)`), legendas logo abaixo do palco, fundo vivo e tela final animada. |
 | `scripts/mogcheck.py` | Revisão do vídeo pronto: quadro vazio, final parado, tela final longa, trechos sem nada novo e uma folha de contato. |
 | `scripts/transcribe.py` | Transcrição palavra por palavra com Whisper local (sem chave). Também alimenta `cut-silences` e `cut-mistakes`. |
 | `scripts/capas.py` + `scripts/lib.py` + `scripts/style.css` | Capas 1080×1920 e carrosséis 1080×1350 em HTML, com ícones Lucide e Simple Icons em `scripts/icons/`. |
@@ -26,6 +27,7 @@ Leia antes de começar:
 | `scripts/fotos/` | Recorte de pessoa (`photocut.py`, `plaincut.py`, `cutbatch.py`, com rembg) e contorno branco sólido (`outline.py`). |
 | `scripts/gem_imagem.py` | Gerar ou editar imagem com o Gemini (a chave vem do ambiente). |
 | `examples/reel_*.py` | Os quatro Reels prontos como modelo: estações com câmera (canales), mundo com caminho (funcion), ensaio tipográfico com risco (producto), cartas que viram (posicion). |
+| `examples/reel_quarta_*.py` | Os quatro Reels de quarta refeitos com o palco centralizado: o recorrido de Lucía (ecosistema), como trabalhamos (proceso), o chatbot das 23:14 (chatbot) e o fluxo n8n (n8n). |
 | `examples/capas_reels.py` | As quatro capas só de design. |
 | `examples/carrossel_ecosistema.py` | Um carrossel completo de 7 slides. |
 
