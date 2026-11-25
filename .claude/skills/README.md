@@ -78,6 +78,8 @@ Este repositório também tem as skills de marketing que já estavam aqui (`copy
 
 ## Avaliados e não incluídos
 
+- [AgriciDaniel/claude-ads](https://github.com/AgriciDaniel/claude-ads) (MIT): auditoria de contas de anúncios em 12 plataformas, só leitura, com saída em JSON. Serve para contas com histórico; para campanha nova virou o roteiro `grupo-ads/references/meta-servicos-locais.md`. Instalar quando um cliente tiver 30+ dias de dados.
+- BlitzMetrics "Meta Ad Agent": artigo sem código público; a ideia (custo por contato qualificado e devolver vendas ao Meta) entrou no mesmo roteiro.
 - [openfilm/openfilm](https://github.com/openfilm/openfilm) (MIT): outro motor de vídeo em HTML com um editor visual no navegador. Faz o mesmo que o HyperFrames; o editor roda no computador local, não na sessão na nuvem. Vale rever se quisermos ajustar vídeos à mão.
 - [OpenMontageInc/OpenMontage](https://github.com/OpenMontageInc/OpenMontage) (AGPL-3.0): sistema enorme de produção com IA, focado em gerar cenas com modelos pagos (Veo, Kling, ElevenLabs). A licença AGPL obrigaria a abrir o que for derivado dele, e o nosso estilo (motion na identidade) já está coberto.
 - Do Herk Edit Kit ficaram de fora: a biblioteca de 406 cartões (estilo de outra marca), `video-storytelling` (depende de scripts que não vêm no repositório), `make-a-video`, `short-form-video` e as cópias antigas do HyperFrames.

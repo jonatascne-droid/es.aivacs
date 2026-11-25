@@ -16,6 +16,7 @@ description: "Grupo 'skills de ADS' da AIVACS: Meta Ads e Google Ads, plano, pú
 | Etapa | Skill principal | Apoio |
 |---|---|---|
 | Estratégia, objetivo, estrutura, orçamento, lances | `ads` | `marketing:campaign-plan` |
+| Primeira campanha de cliente de serviço local (instalador, reforma, clínica) no Meta | [references/meta-servicos-locais.md](references/meta-servicos-locais.md) | `ads` (meta-decision-system), `ad-creative` |
 | Palavras-chave e previsão (Google) | conector Google Ads (`google_ads_generate_keyword_ideas`, `..._historical_metrics`, `..._forecast_metrics`) | `ads` |
 | Textos e variações de anúncio (RSA, Meta) | `ad-creative` | `copywriting`, `marketing-psychology` |
 | Criativo em vídeo ou imagem | grupo `grupo-videos`, `aivacs-estudio` | `image`, `canvas-design` |
