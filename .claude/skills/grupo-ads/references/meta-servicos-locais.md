@@ -1,6 +1,6 @@
 # Meta Ads para serviços locais (instaladores, reformas, clínicas, oficinas)
 
-Roteiro da AIVACS para a **primeira campanha** de um cliente de serviço local na Espanha. Complementa a skill `ads` (feita para B2B/SaaS): aqui o "lead" é alguém que quer uma obra ou um serviço em casa, na zona do cliente. Primeiro uso: Gastron, dezembro de 2026.
+Roteiro da AIVACS para a **primeira campanha** de um cliente de serviço local na Espanha. Complementa a skill `ads` (feita para B2B/SaaS): aqui o "lead" é alguém que quer uma obra ou um serviço em casa, na zona do cliente.
 
 ## 1. Conferir a conta antes de planejar (conector Meta Ads)
 - `ads_get_ad_accounts`: qual conta tem `has_payment_method: true` e `account_status: ACTIVE`. É comum o cliente ter duas contas e só uma com cartão.
