@@ -1,6 +1,6 @@
 ---
 name: grupo-estrategia
-description: Grupo "skills de estratégia" da AIVACS - marketing e vendas - plano de marketing, posicionamento, oferta, preço, funil, lançamento, e-mail, prospecção, pesquisa de clientes e decisões difíceis. Use quando o Jhony disser "use as skills de estratégia", "grupo estratégia", "grupo marketing", "grupo vendas", ou pedir plano, ideia, oferta, preço, funil, prospecção, e-mail ou uma opinião sincera sobre uma decisão.
+description: "Grupo 'skills de estratégia' da AIVACS: plano de marketing, posicionamento, oferta, preço, funil, e-mail, prospecção, concorrentes e decisões difíceis. Use quando o Jhony disser 'use as skills de estratégia', 'grupo estratégia', ou pedir plano, oferta, preço, funil ou pesquisa de mercado."
 ---
 
 # Grupo: Estratégia, marketing e vendas

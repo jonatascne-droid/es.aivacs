@@ -1,6 +1,6 @@
 ---
 name: seo-local
-description: "SEO local para negócios com endereço ou área de atendimento (clínicas, restaurantes, oficinas, salões, imobiliárias...): por que o negócio não aparece no mapa do Google, no resumo de IA (AI Overviews / AI Mode) ou no ChatGPT, e como corrigir. Perfil da Empresa no Google, avaliações, páginas de serviço e de cidade, perguntas dos clientes, schema LocalBusiness, citações e diretórios, concorrentes do mapa. Use para 'auditoria de SEO local', 'por que meu cliente não aparece no Google Maps', 'aparecer na busca com IA', 'Google Business Profile', 'ficha de Google', 'mais avaliações', 'página por cidade'."
+description: "SEO local para negócios com endereço ou área de atendimento: por que não aparece no mapa do Google, no resumo de IA ou no ChatGPT, e como corrigir (ficha do Google, avaliações, páginas de serviço e de cidade, schema, diretórios, concorrentes do mapa). Use para 'auditoria de SEO local', 'Google Maps', 'ficha de Google', '/search'."
 ---
 
 # SEO local

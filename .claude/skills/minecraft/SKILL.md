@@ -1,6 +1,6 @@
 ---
 name: minecraft
-description: Makes a Minecraft-style blocky voxel animation for a reel. A cottage builds itself block by block on a grassy hill, about 165 blocks dropping in with a bounce, then the chimney slams in with a puff of dust, the windows light up warm, smoke rises and a big pixel-font word lands. Procedural 16x16 pixel textures, blocky trees and flat blocky clouds, rendered with three.js. Use when the user runs /minecraft or asks for a Minecraft-style, voxel or blocky animation, or a build-it-block-by-block visual.
+description: "Minecraft-style voxel animation for a reel: a cottage builds itself block by block on a grassy hill and lands on a pixel-font word. Use for /minecraft or a voxel, blocky or build-it-block-by-block visual."
 ---
 
 # /minecraft

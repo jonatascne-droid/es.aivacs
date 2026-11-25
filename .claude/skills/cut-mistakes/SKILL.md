@@ -1,6 +1,6 @@
 ---
 name: cut-mistakes
-description: "Agent 2 of the video editing pipeline. Finds and removes spoken mistakes — stutters, repeated words, false starts, and retakes (re-recorded lines) — from a talking-head recording. Use after cut-silences, when asked to cut mistakes, remove stutters / repeats / filler restarts, clean up flubs, or keep the best take. Works review-gated: it proposes every cut with context and a reason for approval, then renders only the approved cuts via ffmpeg. Requires a word-level transcript."
+description: "Video edit step 2: find and remove spoken mistakes (stutters, repeats, false starts, retakes) from a talking-head recording, proposing every cut for approval before rendering with ffmpeg. Needs a word-level transcript. Use after cut-silences, or for 'tirar erros da gravação', 'cut mistakes', 'keep the best take'."
 ---
 
 # Cut Mistakes & Repeats (Pipeline Agent 2)

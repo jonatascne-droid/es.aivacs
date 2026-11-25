@@ -1,6 +1,6 @@
 ---
 name: radar-de-nicho
-description: "Espiona um nicho e diz o que postar: acha os vídeos do YouTube e do TikTok que passaram muito da média do próprio canal (outliers), assiste os campeões e devolve o que está funcionando (formato, gancho, assunto) e ideias de vídeo prontas para roteirizar. Use para 'o que está bombando no nicho X', 'espionar concorrentes de conteúdo', 'ideias de Reels para o cliente', 'pesquisa de conteúdo', 'o que postar', 'viral brand analyst'."
+description: "Acha os vídeos do YouTube e do TikTok que passaram muito da média do próprio canal (outliers), assiste os campeões e devolve o que funciona no nicho e ideias de vídeo. Use para 'o que está bombando no nicho', 'ideias de Reels para o cliente', 'espionar conteúdo de concorrentes', 'o que postar'."
 argument-hint: "<nicho ou lista de canais> [cliente]"
 ---
 

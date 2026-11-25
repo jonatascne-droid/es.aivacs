@@ -1,6 +1,6 @@
 ---
 name: improve-animations
-description: Survey a codebase's animation and motion code as a senior motion advisor, then produce a prioritized audit and self-contained implementation plans for other agents (or cheaper models) to execute. Read-only on source code — it plans improvements, it does not apply them. Use when the user asks to "improve the animations", "audit the motion", "make this app feel better", or wants a roadmap of animation fixes rather than a review of a single diff.
+description: "Audit a whole codebase's animation and motion code and produce a prioritized roadmap with self-contained implementation plans for other agents; read-only. Use for 'improve the animations', 'audit the motion', 'make this app feel better'. One animation: animate. Review a diff: review-animations."
 ---
 
 # Improving Animations

@@ -25,6 +25,14 @@ O kit próprio da agência (Reels, capas, carrosséis, fotos recortadas, identid
 - Conectores (Metricool, Meta Ads, Google Ads, Claude Docs) vêm da conta: se as ferramentas não aparecerem, avise o Jhony para reconectar em claude.ai → Configurações → Conectores.
 - Skill ou repositório de terceiros: leia antes, copie para `.claude/skills/` com a origem e o commit no README; não rode código externo direto do clone.
 
+## Economia de tokens
+
+- Vídeo de referência: legenda e transcrição primeiro; quadros só se precisar ver algo. Para ver, uma folha de quadros (ffmpeg `tile`) em vez de dezenas de imagens soltas.
+- Arquivo, JSON ou saída grande: leia só o trecho que interessa (`grep`, `head`, intervalo de linhas), nunca o arquivo inteiro sem motivo.
+- Subagente só quando o Jhony pedir ou quando a tarefa realmente se divide; cada um começa do zero e repete contexto.
+- Skill nova entra com descrição curta (até ~350 caracteres): a lista de skills vai em toda sessão e, se passar do limite, as últimas perdem a descrição.
+- Plugins da conta que repetem ou não usamos ficam desligados neste repositório (`enabledPlugins` em `.claude/settings.json`).
+
 ## Site
 
 HTML estático (`index.html`, `servicios/`, `portafolio/`, `privacidad/`), estilos em `styles/`, scripts em `scripts/`. Mudanças por branch e PR, conferidas no desktop e no celular.

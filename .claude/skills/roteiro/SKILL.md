@@ -1,6 +1,6 @@
 ---
 name: roteiro
-description: "Roteiro de Reel que não soa como robô, em três frentes: ganchos (detecta abertura genérica e devolve ganchos que seguram o scroll), estrutura (audita Gancho → Problema → Solução → Prova → CTA) e voz (aprende o jeito de falar da pessoa pelos textos dela e escreve assim). Use para 'escreve o roteiro', 'melhora esse gancho', 'esse hook está fraco?', 'revisa a estrutura do reel', 'escreve com a minha voz', 'o roteiro está com cara de IA'."
+description: "Roteiro de Reel que não soa como robô: ganchos que seguram o scroll, auditoria Gancho → Problema → Solução → Prova → CTA e voz da pessoa aprendida dos textos dela. Use para 'escreve o roteiro', 'melhora esse gancho', 'revisa a estrutura do reel', 'escreve com a minha voz', 'está com cara de IA'."
 argument-hint: "ganchos <tema> | estrutura <roteiro> | voz <cliente> | <tema>"
 ---
 

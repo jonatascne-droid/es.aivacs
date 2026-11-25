@@ -1,6 +1,6 @@
 ---
 name: grupo-ads
-description: Grupo "skills de ADS" da AIVACS - campanhas pagas no Meta Ads (Facebook e Instagram) e Google Ads - planejamento, públicos, palavras-chave, criativos, landing page, medição e otimização. Use quando o Jhony disser "use as skills de ADS", "grupo ADS", "grupo anúncios", "grupo tráfego pago", ou pedir campanha, anúncio, criativo, palavras-chave, orçamento ou relatório de campanha para a AIVACS ou um cliente.
+description: "Grupo 'skills de ADS' da AIVACS: Meta Ads e Google Ads, plano, públicos, palavras-chave, criativos, concorrentes na Biblioteca de Anúncios, landing page e relatórios. Use quando o Jhony disser 'use as skills de ADS', 'grupo ADS', 'tráfego pago', ou pedir campanha, anúncio ou relatório."
 ---
 
 # Grupo: ADS (tráfego pago)

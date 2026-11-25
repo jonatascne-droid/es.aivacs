@@ -2,6 +2,8 @@
 
 Carregadas automaticamente pelo Claude Code em toda sessão aberta neste repositório (o que está no `main`). As de terceiros foram revisadas antes de entrar; para atualizar uma, substitua a pasta pela versão nova do repositório de origem (revise antes).
 
+**Descrições curtas:** a lista de skills (nome + descrição) vai no contexto de toda sessão e, se passar do limite, as últimas aparecem sem descrição. Em 25/11/2026 as descrições de 79 skills foram reescritas para até ~380 caracteres (de ~60 mil para ~31 mil no total), mantendo as frases que acionam cada uma; o corpo das skills não mudou. Ao atualizar uma skill de terceiros, encurte a descrição de novo. Os plugins da conta que repetem ou não usamos (`marketing-skills`, que duplica as 50 de marketing daqui, `engineering`, `product-management`, `cowork-plugin-management`, `auth0`, `postiz`) estão desligados só neste repositório em `.claude/settings.json` (`enabledPlugins`); para religar um, troque `false` por `true`.
+
 ## Grupos
 
 Diga "use as skills do grupo X" e o Claude carrega o roteiro do grupo: o que usar em cada situação, o que precisa estar conectado e as regras da casa.
@@ -65,7 +67,7 @@ Este repositório também tem as skills de marketing que já estavam aqui (`copy
 | `graph` · `map-route` · `breakdown` · `minimalistic-graphics` · `dan-koe` · `kurzgesagt` · `low-poly` · `minecraft` · `stick-figure` · `zach-d-films` · `zach-3d-films` | [artemnovitckii/claude-animation-skills](https://github.com/artemnovitckii/claude-animation-skills) @ 86f7010 (MIT) | Animações para Reels sem gravação, em HyperFrames + GSAP + three.js: gráfico que se desenha, rota em mapa 3D, aparelho desmontado, linhas minimalistas, explicativos com bonecos de palito ou 3D cartoon. O kit compartilhado está em `.claude/kit/` (`bash .claude/kit/setup.sh`). Ajustes locais: usa o Playwright da sessão e o HyperFrames atual (o 0.8.34 fixado não instala mais), números e cartões em espanhol (`graph` e `map-route`), e `kit/palavras_es.py` para marcar as palavras de uma narração em espanhol (o original só entende inglês). Testados aqui: `graph` (45 s) e `map-route` (1 min 50 s). `stick-figure` só foi testada pelo autor, em inglês. |
 | `sfx-kit` | [wyzowl/sfx-kit](https://github.com/wyzowl/sfx-kit) @ 92780e7 (CC0) | 320 efeitos sonoros com ponto de sincronia e volume sob narração. Só o catálogo fica aqui; `scripts/sfx.py` baixa os .wav usados. `scripts/openverse.py` (nosso) busca sons reais de licença aberta no Openverse. |
 | `earshot` | [Leonxlnx/earshot](https://github.com/Leonxlnx/earshot) @ 4ac3d2a (MIT) | Dá ouvidos ao Claude: descreve um som, escolhe entre candidatos, acha o melhor trecho e critica a mixagem de um vídeo (`earshot critique`). Instalação de uma linha, fixada no commit, em `earshot/SKILL.md` (~1 min + 1,1 GB de modelos, só CPU). O comando `llm` (manda áudio para o Gemini) não é usado. |
-| `watch` | [bradautomates/claude-video](https://github.com/bradautomates/claude-video) @ 03ceb42 (MIT; `gemini.py` com ajuste local para a chave injetada pelo proxy) | `/watch <link ou arquivo> [pergunta]`: assiste vídeos de Instagram, YouTube, TikTok etc. |
+| `watch` | [bradautomates/claude-video](https://github.com/bradautomates/claude-video) @ 03ceb42 (MIT; ajustes locais: `gemini.py` usa a chave injetada pelo proxy; `watch.py` tenta outros modelos do Gemini quando um está sobrecarregado (`WATCH_GEMINI_FALLBACK_MODELS`), cai sozinho para os quadros locais se todos falharem e monta uma folha de quadros para ler numa imagem só) | `/watch <link ou arquivo> [pergunta]`: assiste vídeos de Instagram, YouTube, TikTok etc. |
 | `insta` | criada para nós | Mande o link de um reel/post do Instagram (ou `/insta <link>`): legenda, autor, métricas e conteúdo do vídeo, com leitura de marketing. |
 
 ## Produtividade
@@ -93,6 +95,13 @@ Este repositório também tem as skills de marketing que já estavam aqui (`copy
 - [ReceitaFederal/calculadora-rtc-regime-regular](https://github.com/ReceitaFederal/calculadora-rtc-regime-regular) (MIT): calculadora oficial da reforma tributária; guardada para um projeto futuro, não é skill.
 - Os 9 apps open source do vídeo "9 apps pagos" (Open Higgsfield, Chatterbox, OpenSEO, AppFlowy, Handy, Plane, Cal.com, Chatwoot, Cap) são aplicativos, não skills. Chatwoot e Cal.com podem virar serviço para clientes.
 - Só por DM, sem código público: `/search` (@felipetambara.ia), `/ads` (@raphaelmassagardi), `maquina-de-vsl` (@lucasgarciapit), "Viral Brand Analyst" (@gabrieltomaz.ia) e "hooks/roteiro/voz" (@guilhermemorais.ia). `/search` está coberta pelo `seo-local`; `/ads`, pelo conector Meta Ads e pelo roteiro "Espiar concorrentes" do `grupo-ads`; as duas últimas viraram `radar-de-nicho` e `roteiro`. A `maquina-de-vsl` (vídeo com rosto e voz clonados) não tem equivalente: depende de serviço pago de avatar e voz, de autorização por escrito do cliente e, na UE, do aviso de conteúdo gerado por IA.
+
+### Lote de 25/11/2026
+
+- `/search` (@matheusfonseca.ia): a mesma skill do lote anterior, só por DM; coberta pela `seo-local`.
+- [meituan-longcat/LongCat-Video](https://github.com/meituan-longcat/LongCat-Video) (MIT), LongCat-Video-Avatar 1.6: foto + áudio viram a pessoa falando, por mais de 10 minutos. Precisa de placa NVIDIA grande (~40 GB); não roda na nuvem nem no Mac. A testar por um serviço hospedado (WaveSpeedAI, Magiclight) antes de virar skill. Com cliente: autorização por escrito e aviso de IA (AI Act).
+- [Graphify-Labs/graphify](https://github.com/Graphify-Labs/graphify) (Apache 2.0): mapa do código em grafo. O ganho de "71x" foi medido num conjunto de 52 arquivos e cai em projeto pequeno; instala ganchos que interceptam leitura e busca de arquivos. Só para código grande de cliente, instalado no projeto dele.
+- Economia de tokens: [caveman](https://github.com/JuliusBrussee/caveman) (respostas telegráficas; o próprio autor mede ~3% além de "seja conciso"), [RTK](https://github.com/rtk-ai/rtk) (encolhe só saídas de terminal), [context-mode](https://github.com/mksglu/context-mode) (licença Elastic; intercepta todas as ferramentas e pode travar a sessão) e [ccusage](https://github.com/ryoppippi/ccusage) (só mede). No lugar deles: descrições curtas, plugins duplicados desligados e as regras de economia do `CLAUDE.md`.
 
 ## Configuração (sessões na nuvem)
 

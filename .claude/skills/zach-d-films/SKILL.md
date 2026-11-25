@@ -1,6 +1,6 @@
 ---
 name: zach-d-films
-description: Makes a 3D cartoon "what if" explainer short (9:16) in the style of Zack D. Films-type videos, entirely in code with three.js. Procedural cartoon people, props and effects, a blue studio sky, slow-motion impacts, a red force-ripple overlay, quick whip cuts and 1 to 3 word captions timed to the voiceover. Use when the user runs /zach-d-films or asks for a 3D cartoon explainer, a "could X stop Y" or "what if" short with characters and props.
+description: "3D cartoon 'what if' explainer short (9:16) made in code with three.js: cartoon people and props, slow-motion impacts, a red force ripple and captions timed to the voiceover. Use for /zach-d-films or a 'could X stop Y' 3D explainer."
 ---
 
 # /zach-d-films

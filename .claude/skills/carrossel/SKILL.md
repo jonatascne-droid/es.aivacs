@@ -1,6 +1,6 @@
 ---
 name: carrossel
-description: Cria um carrossel de Instagram completo, da capa ao último slide, pronto para postar em PNG 1080x1350. Use quando a pessoa pedir carrossel, post com vários slides, conteúdo para salvar, transformar uma ideia, texto, aula ou tema em carrossel, ou melhorar a capa e a copy de um carrossel que já existe. Faz uma entrevista curta, escolhe o formato, escreve a copy slide a slide e exporta as imagens com Playwright.
+description: "Carrossel de Instagram completo, da capa ao último slide, em PNG 1080x1350: entrevista curta, formato, copy slide a slide e exportação com Playwright. Use para 'carrossel', 'post com vários slides', 'transformar ideia ou texto em carrossel', 'melhorar a capa'. Na identidade da AIVACS, junto com aivacs-estudio."
 license: MIT
 ---
 

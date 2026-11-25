@@ -1,6 +1,6 @@
 ---
 name: dan-koe
-description: Makes Dan Koe style minimal black-and-white line art for a reel. One white dot on pure black grows into a hairline tree that splits in two at every step, the tips light up, a pulse ring and sparks go off, and one quiet lowercase line swaps to a second. Use when the user runs /dan-koe or asks for Dan Koe style visuals, calm black and white motion graphics about choices, habits or compounding, or line art with one moving dot.
+description: "Minimal black-and-white line art for a reel: one dot grows into a hairline tree that splits at every step, with one quiet line of text. Use for /dan-koe or calm line-art visuals about choices, habits or compounding."
 ---
 
 # /dan-koe

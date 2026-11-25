@@ -1,6 +1,6 @@
 ---
 name: comentarios
-description: Classifica comentários de Instagram e escreve a resposta pública e a DM de cada um. Use quando a pessoa colar ou exportar comentários de um post ou reel, pedir "responde esses comentários", "quem pediu o material", "monta as DMs", ou usar uma palavra-chave de isca (como "comenta GUIA"). Identifica a intenção (pediu o material, dúvida, elogio, objeção, hater, spam) e entrega tudo em tabela e CSV prontos para copiar. A skill escreve as respostas; ela não envia nada sozinha.
+description: "Classifica comentários de Instagram (pediu o material, dúvida, elogio, objeção, hater, spam) e escreve a resposta pública e a DM de cada um, em tabela e CSV. Use quando colarem comentários, 'responde esses comentários', 'monta as DMs'. Não envia nada sozinha."
 license: MIT
 ---
 
