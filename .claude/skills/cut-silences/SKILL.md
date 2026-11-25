@@ -1,6 +1,6 @@
 ---
 name: cut-silences
-description: Agent 1 of the video editing pipeline. Removes silences and dead air from a talking-head recording. Use when asked to cut silences, trim pauses, remove dead air / gaps, or tighten the pacing of a raw video, given a word-level transcript. Produces an edit list (EDL), a re-timed transcript for downstream agents, and optionally the cut video via ffmpeg. Does NOT cut mistakes, repeats, or false starts — that is the cut-mistakes agent.
+description: "Video edit step 1: remove silences and dead air from a talking-head recording using a word-level transcript; outputs an edit list, a re-timed transcript and optionally the cut video. Use for 'tirar pausas', 'cut silences', 'trim pauses', 'tighten pacing'. Mistakes and retakes: cut-mistakes."
 ---
 
 # Cut Silences (Pipeline Agent 1)

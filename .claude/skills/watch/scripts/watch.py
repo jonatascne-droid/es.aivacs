@@ -8,6 +8,8 @@ from __future__ import annotations
 
 import argparse
 import math
+import os
+import subprocess
 import shutil
 import sys
 import tempfile
@@ -30,7 +32,10 @@ LOCAL_ONLY_FLAGS = (("--detail", "detail"), ("--fps", "fps"), ("--max-frames", "
                     ("--timestamps", "timestamps"), ("--whisper", "whisper"), ("--sub-lang", "sub_lang"))
 
 
-def run_gemini(args, config, key, start_sec, end_sec, auth) -> int:
+TEMPFAIL = 75  # AIVACS: Gemini overloaded on every model; main() continues with the local engine
+
+
+def run_gemini(args, config, key, start_sec, end_sec, auth, fallback_ok=False) -> int:
     """Google watches the video. No captions, frames, or Whisper; no fallback on failure."""
     ignored = [flag for flag, name in LOCAL_ONLY_FLAGS if getattr(args, name) is not None]
     ignored += [flag for flag, on in (("--no-whisper", args.no_whisper), ("--no-dedup", args.no_dedup)) if on]
@@ -52,9 +57,21 @@ def run_gemini(args, config, key, start_sec, end_sec, auth) -> int:
             uploaded = gemini.upload_file(Path(media["video_path"]), key)
             video = {"uri": uploaded["uri"], "mime_type": uploaded["mime_type"]}
             sent = "video uploaded to Google, deleted after the answer"
-        print(f"[watch] asking {config['gemini_model']}…", file=sys.stderr)
-        result = gemini.ask(video, args.question, model=config["gemini_model"], key=key,
-                            clip=clip, timeout=config["gemini_timeout"])
+        # AIVACS: Gemini models get overloaded (503) for minutes at a time. Try the configured model, then the
+        # fallbacks in WATCH_GEMINI_FALLBACK_MODELS, reusing the upload; only service and quota errors move on.
+        models = [config["gemini_model"]] + [m.strip() for m in os.environ.get(
+            "WATCH_GEMINI_FALLBACK_MODELS", "gemini-3.5-flash,gemini-3.8-flash").split(",") if m.strip()]
+        for model in dict.fromkeys(models):
+            print(f"[watch] asking {model}…", file=sys.stderr)
+            try:
+                result = gemini.ask(video, args.question, model=model, key=key,
+                                    clip=clip, timeout=config["gemini_timeout"])
+                config["gemini_model"], error = model, None
+                break
+            except SystemExit as exc:
+                error = str(exc)
+                if not error.startswith(("Gemini service", "Gemini quota")):
+                    break
     except SystemExit as exc:
         error = str(exc)
     finally:
@@ -62,6 +79,11 @@ def run_gemini(args, config, key, start_sec, end_sec, auth) -> int:
             warning = gemini.delete_file(uploaded["name"], key)
         if work:  # Run-owned; holds at most a downloaded copy. A local source file lives elsewhere.
             shutil.rmtree(work, ignore_errors=True)
+
+    if error and fallback_ok and error.startswith(("Gemini service", "Gemini quota")):
+        print(f"[watch] Gemini unavailable on every model tried; falling back to local frames. {error[:160]}",
+              file=sys.stderr)
+        return TEMPFAIL
 
     print()
     print("# watch: video report")
@@ -90,6 +112,17 @@ def run_gemini(args, config, key, start_sec, end_sec, auth) -> int:
     print(result["text"])
     return 0
 
+
+
+def contact_sheets(frames_dir: Path, cols: int = 6, rows: int = 5) -> list:
+    """AIVACS: tile the extracted frames into contact sheets (6x5 per image) with ffmpeg."""
+    if not any(frames_dir.glob("*.jpg")) or not shutil.which("ffmpeg"):
+        return []
+    out = frames_dir.parent / "contact-sheet-%02d.jpg"
+    r = subprocess.run(["ffmpeg", "-loglevel", "error", "-y", "-pattern_type", "glob", "-i", str(frames_dir / "*.jpg"),
+                        "-vf", f"scale=240:-1,tile={cols}x{rows}:padding=4", "-q:v", "4", str(out)],
+                       capture_output=True, text=True)
+    return sorted(str(p) for p in frames_dir.parent.glob("contact-sheet-*.jpg")) if r.returncode == 0 else []
 
 def main() -> int:
     ap = argparse.ArgumentParser(
@@ -163,7 +196,11 @@ def main() -> int:
 
     gemini_key = load_gemini_key()
     if resolve_engine(args.engine or config["engine"], bool(gemini_key)) == "gemini":
-        return run_gemini(args, config, gemini_key, start_sec, end_sec, auth)
+        rc = run_gemini(args, config, gemini_key, start_sec, end_sec, auth, fallback_ok=args.engine != "gemini")
+        if rc != TEMPFAIL:
+            return rc
+        print("> Gemini indisponível (sobrecarga): seguindo com quadros locais e a folha de quadros abaixo. "
+              "Para a fala, rode `aivacs-estudio/scripts/transcribe.py` no vídeo baixado.\n")
 
     parent = Path(args.out_dir).expanduser().resolve() if args.out_dir else None
     if parent:
@@ -379,6 +416,14 @@ def main() -> int:
     if frames:
         print(f"Frames live at: `{work / 'frames'}`")
         print()
+        # AIVACS: one contact sheet costs far fewer tokens than dozens of separate images; read it first.
+        sheets = contact_sheets(work / "frames")
+        if sheets:
+            print("**Comece pela folha de quadros** (todos os quadros, em ordem, numa imagem só); abra quadros soltos "
+                  "só para ler um detalhe:")
+            for sheet in sheets:
+                print(f"- `{sheet}`")
+            print()
         print(
             "**Read each frame path below with the Read tool to view the image.** "
             "Frames are in chronological order; `t=MM:SS` is the absolute timestamp in the source video."

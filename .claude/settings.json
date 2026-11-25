@@ -3,6 +3,9 @@
     "HYPERFRAMES_NO_TELEMETRY": "1",
     "DO_NOT_TRACK": "1"
   },
+  "enabledMcpjsonServers": [
+    "google-ads"
+  ],
   "hooks": {
     "SessionStart": [
       {
@@ -15,7 +18,12 @@
       }
     ]
   },
-  "enabledMcpjsonServers": [
-    "google-ads"
-  ]
+  "enabledPlugins": {
+    "marketing-skills@synced": false,
+    "engineering@synced": false,
+    "product-management@synced": false,
+    "cowork-plugin-management@synced": false,
+    "auth0@synced": false,
+    "postiz@synced": false
+  }
 }

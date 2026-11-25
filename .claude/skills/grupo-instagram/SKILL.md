@@ -1,6 +1,6 @@
 ---
 name: grupo-instagram
-description: Grupo "skills de Instagram e Facebook" da AIVACS - conteúdo orgânico do início ao fim - analisar Reels e perfis (inclusive por link), carrosséis, legendas, respostas a comentários, calendário e agendamento no Metricool. Use quando o Jhony disser "use as skills de Instagram", "grupo Instagram", "grupo redes sociais", "grupo social", ou pedir posts, carrosséis, calendário, análise de um Reel ou do perfil, ou agendamento.
+description: "Grupo 'skills de Instagram e Facebook' da AIVACS: analisar Reels e perfis, carrosséis, legendas, roteiros, comentários, calendário e agendamento no Metricool. Use quando o Jhony disser 'use as skills de Instagram', 'grupo Instagram', ou pedir conteúdo, análise ou agendamento para Instagram ou Facebook."
 ---
 
 # Grupo: Instagram e Facebook (orgânico)

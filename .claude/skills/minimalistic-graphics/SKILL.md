@@ -1,6 +1,6 @@
 ---
 name: minimalistic-graphics
-description: Makes a minimal black-and-white line-art animation for a reel. Thin outlined steps rise one by one, a white dot hops up them, and at the top an orbit draws around it and a short second line swaps in. One quiet lowercase line of text on top. Use when the user runs /minimalistic-graphics or asks for simple black and white motion graphics, a calm self-improvement visual or line art with one moving dot.
+description: "Minimal black-and-white line-art animation for a reel: outlined steps rise and a white dot hops up them, with one lowercase line of text. Use for /minimalistic-graphics or simple, calm motion graphics."
 ---
 
 # /minimalistic-graphics

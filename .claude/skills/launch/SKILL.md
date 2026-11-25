@@ -1,6 +1,6 @@
 ---
 name: launch
-description: "When the user wants to plan a product launch, feature announcement, or release strategy. Also use when the user mentions 'launch,' 'Product Hunt,' 'feature release,' 'announcement,' 'go-to-market,' 'beta launch,' 'early access,' 'waitlist,' 'product update,' 'how do I launch this,' 'launch checklist,' 'GTM plan,' or 'we're about to ship.' Use this whenever someone is preparing to release something publicly. For ongoing marketing after launch, see marketing-ideas. For the offer being launched (bonuses, guarantees, scarcity, naming), see offers."
+description: "Plan a product launch, feature announcement or release: GTM plan, Product Hunt, beta and waitlist, launch checklist. Use for 'launch', 'lançamento', 'go-to-market', 'we're about to ship'. Ongoing marketing: marketing-ideas. The offer: offers."
 metadata:
   version: 2.0.2
 ---

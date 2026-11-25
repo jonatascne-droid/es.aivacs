@@ -1,6 +1,6 @@
 ---
 name: insta
-description: "Analisa um reel, post de vídeo ou IGTV do Instagram a partir do link: do que se trata, o que é dito e mostrado, texto na tela, música, legenda, hashtags, autor, data, curtidas, comentários e visualizações, com uma leitura de marketing (gancho, CTA, formato). Use sempre que o usuário mandar um link instagram.com/reel/, /reels/, /p/ ou /tv/, mesmo sem instrução além do link ('analisa esse reel', 'do que se trata esse vídeo', 'o que diz esse post', 'analyze this reel', '/insta <link>')."
+description: "Analisa um reel ou post de vídeo do Instagram pelo link: o que é dito e mostrado, texto na tela, legenda, autor e métricas, com leitura de marketing (gancho, CTA, formato). Use sempre que mandarem um link instagram.com/reel/, /reels/, /p/ ou /tv/, mesmo sem outra instrução, ou '/insta <link>'."
 argument-hint: "<link do Instagram> [pergunta opcional]"
 allowed-tools: Bash, Read
 ---

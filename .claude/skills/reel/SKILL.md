@@ -1,6 +1,6 @@
 ---
 name: reel
-description: Cria um reel vertical 1080x1920 pronto para postar, do gancho ao MP4 renderizado no computador da pessoa. Use quando a pessoa pedir "faz um reel sobre X", vídeo curto, reels para Instagram ou TikTok, roteiro com vídeo pronto, ou quiser transformar uma ideia, dica, lista ou conteúdo em vídeo animado com legenda. Faz uma entrevista curta, escreve gancho e roteiro cena a cena, gera a narração com a chave do ElevenLabs da própria pessoa (opcional), mixa a trilha que ela fornecer e renderiza com Remotion.
+description: "Reel vertical 1080x1920 do gancho ao MP4, renderizado com Remotion, com narração opcional pela chave do ElevenLabs da pessoa. Use só quando pedirem Remotion; para Reels da AIVACS e de clientes, use aivacs-estudio (HyperFrames). O Remotion exige licença paga para empresas com mais de 3 pessoas."
 license: MIT
 ---
 

@@ -1,6 +1,6 @@
 ---
 name: earshot
-description: Listen with earshot whenever you must judge, choose, trim, verify or compare sound you cannot hear - picking a sound effect, music or ambience from candidates, finding the cleanest moment in a recording, checking whether audio reads as a real recording or as code-synthesized, reviewing a soundtrack or a video's audio (what happens when, sync to picture, loudness, mix), A/B-ing a mix change, making a sound in code and improving it by listening (earshot forge), or giving a code-made film its sound effects from the shipped bank (earshot sfx / kit). Use it before telling anyone how audio sounds.
+description: "Listen to audio you cannot hear: describe, choose, trim, compare or verify sounds, check a video's sound (sync, loudness, mix) and make sound effects in code (earshot sfx / kit). Use before saying how anything sounds, when picking SFX or music, or to review a Reel's audio ('earshot critique')."
 ---
 
 # earshot: ears for an agent

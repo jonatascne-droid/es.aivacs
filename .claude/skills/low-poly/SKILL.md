@@ -1,6 +1,6 @@
 ---
 name: low-poly
-description: Makes a PS1/N64-era low-poly 3D animation for a reel, in the style of "low poly shorts". Chunky low-resolution pixels, wobbly vertices, dithering, flat warm lighting and small yellow captions with a thin black outline. The built-in scene is a train platform: a dog sits and waits, a train brakes in and pulls away, and he is still there in the snow. Use when the user runs /low-poly or asks for a low-poly, PS1-style, retro 3D or "low poly shorts" animation.
+description: "PS1-style low-poly 3D animation for a reel: chunky pixels, wobbly vertices, dithering and small yellow captions (built-in scene: a dog waiting at a train platform). Use for /low-poly or a retro low-poly 3D look."
 ---
 
 # /low-poly
